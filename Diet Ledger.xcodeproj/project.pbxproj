@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E867129623A874C30012A80B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129523A874C30012A80B /* AppDelegate.swift */; };
+		E867129823A874C30012A80B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129723A874C30012A80B /* ViewController.swift */; };
+		E867129B23A874C30012A80B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E867129923A874C30012A80B /* Main.storyboard */; };
+		E867129E23A874C30012A80B /* Diet_Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E867129C23A874C30012A80B /* Diet_Ledger.xcdatamodeld */; };
+		E86712A023A874C40012A80B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E867129F23A874C40012A80B /* Assets.xcassets */; };
+		E86712A323A874C40012A80B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86712A123A874C40012A80B /* LaunchScreen.storyboard */; };
+		E86712AE23A874C40012A80B /* Diet_LedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86712AD23A874C40012A80B /* Diet_LedgerTests.swift */; };
+		E86712B923A874C40012A80B /* Diet_LedgerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86712B823A874C40012A80B /* Diet_LedgerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E86712AA23A874C40012A80B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E867128A23A874C30012A80B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E867129123A874C30012A80B;
+			remoteInfo = "Diet Ledger";
+		};
+		E86712B523A874C40012A80B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E867128A23A874C30012A80B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E867129123A874C30012A80B;
+			remoteInfo = "Diet Ledger";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E867129223A874C30012A80B /* Diet Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Ledger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E867129523A874C30012A80B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E867129723A874C30012A80B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E867129A23A874C30012A80B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E867129D23A874C30012A80B /* Diet_Ledger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diet_Ledger.xcdatamodel; sourceTree = "<group>"; };
+		E867129F23A874C40012A80B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E86712A223A874C40012A80B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E86712A423A874C40012A80B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E86712A923A874C40012A80B /* Diet LedgerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diet LedgerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86712AD23A874C40012A80B /* Diet_LedgerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet_LedgerTests.swift; sourceTree = "<group>"; };
+		E86712AF23A874C40012A80B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E86712B423A874C40012A80B /* Diet LedgerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diet LedgerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86712B823A874C40012A80B /* Diet_LedgerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet_LedgerUITests.swift; sourceTree = "<group>"; };
+		E86712BA23A874C40012A80B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E867128F23A874C30012A80B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86712A623A874C40012A80B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86712B123A874C40012A80B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E867128923A874C30012A80B = {
+			isa = PBXGroup;
+			children = (
+				E867129423A874C30012A80B /* Diet Ledger */,
+				E86712AC23A874C40012A80B /* Diet LedgerTests */,
+				E86712B723A874C40012A80B /* Diet LedgerUITests */,
+				E867129323A874C30012A80B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E867129323A874C30012A80B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E867129223A874C30012A80B /* Diet Ledger.app */,
+				E86712A923A874C40012A80B /* Diet LedgerTests.xctest */,
+				E86712B423A874C40012A80B /* Diet LedgerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E867129423A874C30012A80B /* Diet Ledger */ = {
+			isa = PBXGroup;
+			children = (
+				E867129523A874C30012A80B /* AppDelegate.swift */,
+				E867129723A874C30012A80B /* ViewController.swift */,
+				E867129923A874C30012A80B /* Main.storyboard */,
+				E867129F23A874C40012A80B /* Assets.xcassets */,
+				E86712A123A874C40012A80B /* LaunchScreen.storyboard */,
+				E86712A423A874C40012A80B /* Info.plist */,
+				E867129C23A874C30012A80B /* Diet_Ledger.xcdatamodeld */,
+			);
+			path = "Diet Ledger";
+			sourceTree = "<group>";
+		};
+		E86712AC23A874C40012A80B /* Diet LedgerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E86712AD23A874C40012A80B /* Diet_LedgerTests.swift */,
+				E86712AF23A874C40012A80B /* Info.plist */,
+			);
+			path = "Diet LedgerTests";
+			sourceTree = "<group>";
+		};
+		E86712B723A874C40012A80B /* Diet LedgerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E86712B823A874C40012A80B /* Diet_LedgerUITests.swift */,
+				E86712BA23A874C40012A80B /* Info.plist */,
+			);
+			path = "Diet LedgerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E867129123A874C30012A80B /* Diet Ledger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E86712BD23A874C40012A80B /* Build configuration list for PBXNativeTarget "Diet Ledger" */;
+			buildPhases = (
+				E867128E23A874C30012A80B /* Sources */,
+				E867128F23A874C30012A80B /* Frameworks */,
+				E867129023A874C30012A80B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Diet Ledger";
+			productName = "Diet Ledger";
+			productReference = E867129223A874C30012A80B /* Diet Ledger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E86712A823A874C40012A80B /* Diet LedgerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E86712C023A874C40012A80B /* Build configuration list for PBXNativeTarget "Diet LedgerTests" */;
+			buildPhases = (
+				E86712A523A874C40012A80B /* Sources */,
+				E86712A623A874C40012A80B /* Frameworks */,
+				E86712A723A874C40012A80B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E86712AB23A874C40012A80B /* PBXTargetDependency */,
+			);
+			name = "Diet LedgerTests";
+			productName = "Diet LedgerTests";
+			productReference = E86712A923A874C40012A80B /* Diet LedgerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E86712B323A874C40012A80B /* Diet LedgerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E86712C323A874C40012A80B /* Build configuration list for PBXNativeTarget "Diet LedgerUITests" */;
+			buildPhases = (
+				E86712B023A874C40012A80B /* Sources */,
+				E86712B123A874C40012A80B /* Frameworks */,
+				E86712B223A874C40012A80B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E86712B623A874C40012A80B /* PBXTargetDependency */,
+			);
+			name = "Diet LedgerUITests";
+			productName = "Diet LedgerUITests";
+			productReference = E86712B423A874C40012A80B /* Diet LedgerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E867128A23A874C30012A80B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = MinyaHo;
+				TargetAttributes = {
+					E867129123A874C30012A80B = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					E86712A823A874C40012A80B = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = E867129123A874C30012A80B;
+					};
+					E86712B323A874C40012A80B = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = E867129123A874C30012A80B;
+					};
+				};
+			};
+			buildConfigurationList = E867128D23A874C30012A80B /* Build configuration list for PBXProject "Diet Ledger" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E867128923A874C30012A80B;
+			productRefGroup = E867129323A874C30012A80B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E867129123A874C30012A80B /* Diet Ledger */,
+				E86712A823A874C40012A80B /* Diet LedgerTests */,
+				E86712B323A874C40012A80B /* Diet LedgerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E867129023A874C30012A80B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86712A323A874C40012A80B /* LaunchScreen.storyboard in Resources */,
+				E86712A023A874C40012A80B /* Assets.xcassets in Resources */,
+				E867129B23A874C30012A80B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86712A723A874C40012A80B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86712B223A874C40012A80B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E867128E23A874C30012A80B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E867129823A874C30012A80B /* ViewController.swift in Sources */,
+				E867129623A874C30012A80B /* AppDelegate.swift in Sources */,
+				E867129E23A874C30012A80B /* Diet_Ledger.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86712A523A874C40012A80B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86712AE23A874C40012A80B /* Diet_LedgerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86712B023A874C40012A80B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86712B923A874C40012A80B /* Diet_LedgerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E86712AB23A874C40012A80B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E867129123A874C30012A80B /* Diet Ledger */;
+			targetProxy = E86712AA23A874C40012A80B /* PBXContainerItemProxy */;
+		};
+		E86712B623A874C40012A80B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E867129123A874C30012A80B /* Diet Ledger */;
+			targetProxy = E86712B523A874C40012A80B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E867129923A874C30012A80B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E867129A23A874C30012A80B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E86712A123A874C40012A80B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E86712A223A874C40012A80B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E86712BB23A874C40012A80B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E86712BC23A874C40012A80B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E86712BE23A874C40012A80B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LC25V4676C;
+				INFOPLIST_FILE = "Diet Ledger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minyaho.Diet-Ledger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E86712BF23A874C40012A80B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LC25V4676C;
+				INFOPLIST_FILE = "Diet Ledger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minyaho.Diet-Ledger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E86712C123A874C40012A80B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LC25V4676C;
+				INFOPLIST_FILE = "Diet LedgerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minyaho.Diet-LedgerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diet Ledger.app/Diet Ledger";
+			};
+			name = Debug;
+		};
+		E86712C223A874C40012A80B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LC25V4676C;
+				INFOPLIST_FILE = "Diet LedgerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minyaho.Diet-LedgerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diet Ledger.app/Diet Ledger";
+			};
+			name = Release;
+		};
+		E86712C423A874C40012A80B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LC25V4676C;
+				INFOPLIST_FILE = "Diet LedgerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minyaho.Diet-LedgerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Diet Ledger";
+			};
+			name = Debug;
+		};
+		E86712C523A874C40012A80B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LC25V4676C;
+				INFOPLIST_FILE = "Diet LedgerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minyaho.Diet-LedgerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Diet Ledger";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E867128D23A874C30012A80B /* Build configuration list for PBXProject "Diet Ledger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86712BB23A874C40012A80B /* Debug */,
+				E86712BC23A874C40012A80B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E86712BD23A874C40012A80B /* Build configuration list for PBXNativeTarget "Diet Ledger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86712BE23A874C40012A80B /* Debug */,
+				E86712BF23A874C40012A80B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E86712C023A874C40012A80B /* Build configuration list for PBXNativeTarget "Diet LedgerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86712C123A874C40012A80B /* Debug */,
+				E86712C223A874C40012A80B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E86712C323A874C40012A80B /* Build configuration list for PBXNativeTarget "Diet LedgerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86712C423A874C40012A80B /* Debug */,
+				E86712C523A874C40012A80B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E867129C23A874C30012A80B /* Diet_Ledger.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E867129D23A874C30012A80B /* Diet_Ledger.xcdatamodel */,
+			);
+			currentVersion = E867129D23A874C30012A80B /* Diet_Ledger.xcdatamodel */;
+			path = Diet_Ledger.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E867128A23A874C30012A80B /* Project object */;
+}
