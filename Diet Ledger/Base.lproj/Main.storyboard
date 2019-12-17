@@ -13,7 +13,6 @@
         <!--飲食清單-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="食飯帳本" id="BYZ-38-t0r" userLabel="飲食清單" customClass="ViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -81,6 +80,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="VSp-bt-yRv" kind="show" id="YQj-v8-9gM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99002093076705933" green="0.93042677640914917" blue="0.82743889093399048" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -159,11 +161,270 @@
                     <navigationItem key="navigationItem" title="飲食清單" id="4kL-9Q-wHa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zZn-Eg-b55">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="VSp-bt-yRv" kind="show" id="JKa-Xj-FsE"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="137.94642857142856"/>
+        </scene>
+        <!--新增飲食-->
+        <scene sceneID="jwk-Ev-IRo">
+            <objects>
+                <viewController id="VSp-bt-yRv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b7b-4c-RS5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSO-uw-wPQ" userLabel="information view">
+                                <rect key="frame" x="5" y="94" width="404" height="95"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8P-Pd-Tbn">
+                                        <rect key="frame" x="15" y="17.5" width="60" height="60"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Lrd-YX-2xM"/>
+                                            <constraint firstAttribute="height" constant="60" id="vEj-3P-UOx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="類型">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vth-BF-Pet">
+                                        <rect key="frame" x="95" y="16" width="82" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="選擇店家"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消費金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-rh-XcV">
+                                        <rect key="frame" x="315" y="24" width="74" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgs-KU-VnT">
+                                        <rect key="frame" x="338" y="50" width="51" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NC8-Lx-iHs">
+                                        <rect key="frame" x="95" y="47" width="66" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="設定時間"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="N8P-Pd-Tbn" firstAttribute="leading" secondItem="rSO-uw-wPQ" secondAttribute="leading" constant="15" id="42u-Kl-QaR"/>
+                                    <constraint firstItem="vth-BF-Pet" firstAttribute="top" secondItem="rSO-uw-wPQ" secondAttribute="top" constant="16" id="5aG-1H-nkv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="5ok-yb-3hf"/>
+                                    <constraint firstItem="NC8-Lx-iHs" firstAttribute="leading" secondItem="N8P-Pd-Tbn" secondAttribute="trailing" constant="20" id="7Bw-f9-sMj"/>
+                                    <constraint firstAttribute="bottom" secondItem="NC8-Lx-iHs" secondAttribute="bottom" constant="16" id="PBV-SP-Qh5"/>
+                                    <constraint firstItem="Sgs-KU-VnT" firstAttribute="top" secondItem="0Aj-rh-XcV" secondAttribute="bottom" constant="4" id="Swr-ti-t5Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Aj-rh-XcV" secondAttribute="trailing" constant="15" id="cJi-iM-XhL"/>
+                                    <constraint firstItem="N8P-Pd-Tbn" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" id="eld-Cm-3jL"/>
+                                    <constraint firstItem="vth-BF-Pet" firstAttribute="leading" secondItem="N8P-Pd-Tbn" secondAttribute="trailing" constant="20" id="gdO-Mq-CEB"/>
+                                    <constraint firstItem="NC8-Lx-iHs" firstAttribute="top" secondItem="vth-BF-Pet" secondAttribute="bottom" constant="-5" id="im5-gx-8ZI"/>
+                                    <constraint firstItem="0Aj-rh-XcV" firstAttribute="top" secondItem="rSO-uw-wPQ" secondAttribute="top" constant="24" id="y5S-pJ-gFg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sgs-KU-VnT" secondAttribute="trailing" constant="15" id="ytP-NX-5gQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVM-SP-yVt" userLabel="content view">
+                                <rect key="frame" x="5" y="195" width="404" height="618"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-nu-Mfe">
+                                        <rect key="frame" x="179" y="10" width="70" height="32"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="DI7-PP-rRN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="類型">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqU-GQ-syx">
+                                        <rect key="frame" x="259" y="10" width="60" height="32"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="qgn-No-eId"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="數量">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pip-Bo-pou">
+                                        <rect key="frame" x="329" y="10" width="60" height="32"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="vOU-oA-xTY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="小記">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwI-HJ-zmh">
+                                        <rect key="frame" x="10" y="10" width="159" height="32"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="0vH-A5-QjG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="品名">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOh-BE-QNZ">
+                                        <rect key="frame" x="0.0" y="44" width="404" height="520"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eoW-zZ-c9J">
+                                                <rect key="frame" x="0.0" y="28" width="404" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eoW-zZ-c9J" id="zL0-0r-gMU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="404" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A套餐 （加量）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upu-b1-yAB">
+                                                            <rect key="frame" x="15" y="11.5" width="154" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$75" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSo-hm-6XW">
+                                                            <rect key="frame" x="329" y="11.5" width="60" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="bcC-ET-mw2"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5M-p1-Bbh">
+                                                            <rect key="frame" x="259" y="11.5" width="60" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="5Tf-zU-WlK"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="漢堡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBr-AV-eff">
+                                                            <rect key="frame" x="179" y="11.5" width="70" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="YBx-js-YAu"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.99224251508712769" green="0.93006867170333862" blue="0.8159748911857605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="R5M-p1-Bbh" firstAttribute="leading" secondItem="bBr-AV-eff" secondAttribute="trailing" constant="10" id="89S-o2-1Td"/>
+                                                        <constraint firstItem="bBr-AV-eff" firstAttribute="centerY" secondItem="zL0-0r-gMU" secondAttribute="centerY" id="Efl-vC-scg"/>
+                                                        <constraint firstItem="upu-b1-yAB" firstAttribute="centerY" secondItem="zL0-0r-gMU" secondAttribute="centerY" id="GiM-vG-hdg"/>
+                                                        <constraint firstItem="bBr-AV-eff" firstAttribute="leading" secondItem="upu-b1-yAB" secondAttribute="trailing" constant="10" id="TBs-8w-yef"/>
+                                                        <constraint firstItem="QSo-hm-6XW" firstAttribute="centerY" secondItem="zL0-0r-gMU" secondAttribute="centerY" id="Xvn-bR-vGq"/>
+                                                        <constraint firstItem="R5M-p1-Bbh" firstAttribute="centerY" secondItem="zL0-0r-gMU" secondAttribute="centerY" id="ZjF-p9-Tef"/>
+                                                        <constraint firstItem="QSo-hm-6XW" firstAttribute="leading" secondItem="R5M-p1-Bbh" secondAttribute="trailing" constant="10" id="bBR-8f-HVw"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QSo-hm-6XW" secondAttribute="trailing" constant="15" id="xgQ-7d-UkA"/>
+                                                        <constraint firstItem="upu-b1-yAB" firstAttribute="leading" secondItem="zL0-0r-gMU" secondAttribute="leading" constant="15" id="yEO-v5-dQ8"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWf-pH-1cz">
+                                        <rect key="frame" x="43" y="575" width="92" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="新增一筆品項"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNb-5a-sK2">
+                                        <rect key="frame" x="278" y="575" width="92" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="完成該筆飲食"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="GOh-BE-QNZ" firstAttribute="top" secondItem="OAw-nu-Mfe" secondAttribute="bottom" constant="2" id="5rr-ve-Jlh"/>
+                                    <constraint firstItem="OAw-nu-Mfe" firstAttribute="top" secondItem="kVM-SP-yVt" secondAttribute="top" constant="10" id="6Te-He-ppE"/>
+                                    <constraint firstItem="tqU-GQ-syx" firstAttribute="leading" secondItem="OAw-nu-Mfe" secondAttribute="trailing" constant="10" id="W3u-yg-fwY"/>
+                                    <constraint firstItem="Pip-Bo-pou" firstAttribute="top" secondItem="kVM-SP-yVt" secondAttribute="top" constant="10" id="XyR-Pq-hvx"/>
+                                    <constraint firstItem="Pip-Bo-pou" firstAttribute="leading" secondItem="tqU-GQ-syx" secondAttribute="trailing" constant="10" id="hAj-21-DOM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pip-Bo-pou" secondAttribute="trailing" constant="15" id="hs6-cN-bwe"/>
+                                    <constraint firstAttribute="bottom" secondItem="GOh-BE-QNZ" secondAttribute="bottom" constant="54" id="maX-0s-Ayd"/>
+                                    <constraint firstAttribute="trailing" secondItem="GOh-BE-QNZ" secondAttribute="trailing" id="nKD-Gi-ATh"/>
+                                    <constraint firstItem="SwI-HJ-zmh" firstAttribute="top" secondItem="kVM-SP-yVt" secondAttribute="top" constant="10" id="nNs-DT-UMF"/>
+                                    <constraint firstItem="SwI-HJ-zmh" firstAttribute="leading" secondItem="kVM-SP-yVt" secondAttribute="leading" constant="10" id="tPS-WK-s1t"/>
+                                    <constraint firstItem="tqU-GQ-syx" firstAttribute="top" secondItem="kVM-SP-yVt" secondAttribute="top" constant="10" id="txd-et-wJw"/>
+                                    <constraint firstItem="OAw-nu-Mfe" firstAttribute="leading" secondItem="SwI-HJ-zmh" secondAttribute="trailing" constant="10" id="ugh-LR-ez5"/>
+                                    <constraint firstItem="GOh-BE-QNZ" firstAttribute="leading" secondItem="kVM-SP-yVt" secondAttribute="leading" id="xkT-ui-cJC"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rSO-uw-wPQ" firstAttribute="centerX" secondItem="b7b-4c-RS5" secondAttribute="centerX" id="090-wj-ErC"/>
+                            <constraint firstItem="rSO-uw-wPQ" firstAttribute="top" secondItem="O9m-G4-21l" secondAttribute="top" constant="6" id="DiH-iC-DpH"/>
+                            <constraint firstItem="O9m-G4-21l" firstAttribute="bottom" secondItem="kVM-SP-yVt" secondAttribute="bottom" id="Hvn-7s-ECp"/>
+                            <constraint firstItem="kVM-SP-yVt" firstAttribute="leading" secondItem="O9m-G4-21l" secondAttribute="leading" constant="5" id="J8e-Oi-GLv"/>
+                            <constraint firstItem="kVM-SP-yVt" firstAttribute="top" secondItem="rSO-uw-wPQ" secondAttribute="bottom" constant="6" id="Mm2-qz-sze"/>
+                            <constraint firstItem="rSO-uw-wPQ" firstAttribute="leading" secondItem="O9m-G4-21l" secondAttribute="leading" constant="5" id="bVM-VC-4uc"/>
+                            <constraint firstItem="O9m-G4-21l" firstAttribute="trailing" secondItem="rSO-uw-wPQ" secondAttribute="trailing" constant="5" id="gFE-L0-BrE"/>
+                            <constraint firstItem="O9m-G4-21l" firstAttribute="trailing" secondItem="kVM-SP-yVt" secondAttribute="trailing" constant="5" id="s9g-Qs-ocZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O9m-G4-21l"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="新增飲食" id="xmi-5M-MP9">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="60F-qV-mk3"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLq-Kc-NYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673.913043478261" y="137.94642857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LzI-zS-rtC">
@@ -171,6 +432,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lD4-ib-NCX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o50-AL-dU6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,6 +454,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ANx-sn-eaQ" userLabel="飲食清單導引列">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="1" green="0.67825257510000003" blue="0.097097044990000006" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,4 +473,7 @@
     <resources>
         <image name="TabIconDietList" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YQj-v8-9gM"/>
+    </inferredMetricsTieBreakers>
 </document>
