@@ -15,6 +15,10 @@
 		E86712A323A874C40012A80B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86712A123A874C40012A80B /* LaunchScreen.storyboard */; };
 		E86712AE23A874C40012A80B /* Diet_LedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86712AD23A874C40012A80B /* Diet_LedgerTests.swift */; };
 		E86712B923A874C40012A80B /* Diet_LedgerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86712B823A874C40012A80B /* Diet_LedgerUITests.swift */; };
+		E8C155EA23AA14BA00319E8E /* ACTabScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C155E823AA14BA00319E8E /* ACTabScrollView.swift */; };
+		E8C155EB23AA14BA00319E8E /* ACTabScrollView+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C155E923AA14BA00319E8E /* ACTabScrollView+Protocol.swift */; };
+		E8C155ED23AA163300319E8E /* DietListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C155EC23AA163300319E8E /* DietListViewController.swift */; };
+		E8C155EF23AA1E4B00319E8E /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C155EE23AA1E4B00319E8E /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		E86712B423A874C40012A80B /* Diet LedgerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diet LedgerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86712B823A874C40012A80B /* Diet_LedgerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet_LedgerUITests.swift; sourceTree = "<group>"; };
 		E86712BA23A874C40012A80B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8C155E823AA14BA00319E8E /* ACTabScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACTabScrollView.swift; sourceTree = "<group>"; };
+		E8C155E923AA14BA00319E8E /* ACTabScrollView+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ACTabScrollView+Protocol.swift"; sourceTree = "<group>"; };
+		E8C155EC23AA163300319E8E /* DietListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListViewController.swift; sourceTree = "<group>"; };
+		E8C155EE23AA1E4B00319E8E /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 		E867128923A874C30012A80B = {
 			isa = PBXGroup;
 			children = (
+				E8C155E723AA14BA00319E8E /* Sources */,
 				E867129423A874C30012A80B /* Diet Ledger */,
 				E86712AC23A874C40012A80B /* Diet LedgerTests */,
 				E86712B723A874C40012A80B /* Diet LedgerUITests */,
@@ -99,8 +108,10 @@
 		E867129423A874C30012A80B /* Diet Ledger */ = {
 			isa = PBXGroup;
 			children = (
+				E8C155EE23AA1E4B00319E8E /* ContentViewController.swift */,
 				E867129523A874C30012A80B /* AppDelegate.swift */,
 				E867129723A874C30012A80B /* ViewController.swift */,
+				E8C155EC23AA163300319E8E /* DietListViewController.swift */,
 				E867129923A874C30012A80B /* Main.storyboard */,
 				E867129F23A874C40012A80B /* Assets.xcassets */,
 				E86712A123A874C40012A80B /* LaunchScreen.storyboard */,
@@ -126,6 +137,15 @@
 				E86712BA23A874C40012A80B /* Info.plist */,
 			);
 			path = "Diet LedgerUITests";
+			sourceTree = "<group>";
+		};
+		E8C155E723AA14BA00319E8E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E8C155E823AA14BA00319E8E /* ACTabScrollView.swift */,
+				E8C155E923AA14BA00319E8E /* ACTabScrollView+Protocol.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C155EB23AA14BA00319E8E /* ACTabScrollView+Protocol.swift in Sources */,
 				E867129823A874C30012A80B /* ViewController.swift in Sources */,
+				E8C155ED23AA163300319E8E /* DietListViewController.swift in Sources */,
+				E8C155EA23AA14BA00319E8E /* ACTabScrollView.swift in Sources */,
 				E867129623A874C30012A80B /* AppDelegate.swift in Sources */,
 				E867129E23A874C30012A80B /* Diet_Ledger.xcdatamodeld in Sources */,
+				E8C155EF23AA1E4B00319E8E /* ContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
