@@ -37,7 +37,7 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 80
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,9 +57,10 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.timeLabel.text = time_name[indexPath.row]
         cell.itemLabel.text = title_name[indexPath.row]
         cell.moneyLabel.text = "$"+money_name[indexPath.row]
+        cell.storeLabel.text = store_name[indexPath.row]
         cell.type.text = String(type_name[indexPath.row])
         cell.type.layer.backgroundColor = UIColor.orange.cgColor
-        cell.type.layer.cornerRadius = 20
+        cell.type.layer.cornerRadius = 25
         cell.type.layer.borderWidth = 2
         cell.type.layer.borderColor = UIColor.white.cgColor
         

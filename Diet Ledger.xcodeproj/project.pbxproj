@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8939E72D23AA89BB00D5FE6A /* Diet_Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E867129C23A874C30012A80B /* Diet_Ledger.xcdatamodeld */; };
+		8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */; };
+		89A2ECF223AA6E4F00258A1C /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */; };
 		E867129623A874C30012A80B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129523A874C30012A80B /* AppDelegate.swift */; };
 		E867129823A874C30012A80B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129723A874C30012A80B /* ViewController.swift */; };
 		E867129B23A874C30012A80B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E867129923A874C30012A80B /* Main.storyboard */; };
-		E867129E23A874C30012A80B /* Diet_Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E867129C23A874C30012A80B /* Diet_Ledger.xcdatamodeld */; };
 		E86712A023A874C40012A80B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E867129F23A874C40012A80B /* Assets.xcassets */; };
 		E86712A323A874C40012A80B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86712A123A874C40012A80B /* LaunchScreen.storyboard */; };
 		E86712AE23A874C40012A80B /* Diet_LedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86712AD23A874C40012A80B /* Diet_LedgerTests.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
+		89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		E867129223A874C30012A80B /* Diet Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Ledger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E867129523A874C30012A80B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E867129723A874C30012A80B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8939E72E23AA8D0F00D5FE6A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E8C155EE23AA1E4B00319E8E /* ContentViewController.swift */,
+				E867129723A874C30012A80B /* ViewController.swift */,
+				E8C155EC23AA163300319E8E /* DietListViewController.swift */,
+				89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */,
+				8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		E867128923A874C30012A80B = {
 			isa = PBXGroup;
 			children = (
@@ -108,10 +124,8 @@
 		E867129423A874C30012A80B /* Diet Ledger */ = {
 			isa = PBXGroup;
 			children = (
-				E8C155EE23AA1E4B00319E8E /* ContentViewController.swift */,
+				8939E72E23AA8D0F00D5FE6A /* ViewController */,
 				E867129523A874C30012A80B /* AppDelegate.swift */,
-				E867129723A874C30012A80B /* ViewController.swift */,
-				E8C155EC23AA163300319E8E /* DietListViewController.swift */,
 				E867129923A874C30012A80B /* Main.storyboard */,
 				E867129F23A874C40012A80B /* Assets.xcassets */,
 				E86712A123A874C40012A80B /* LaunchScreen.storyboard */,
@@ -279,12 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A2ECF223AA6E4F00258A1C /* StoreViewController.swift in Sources */,
 				E8C155EB23AA14BA00319E8E /* ACTabScrollView+Protocol.swift in Sources */,
 				E867129823A874C30012A80B /* ViewController.swift in Sources */,
 				E8C155ED23AA163300319E8E /* DietListViewController.swift in Sources */,
+				8939E72D23AA89BB00D5FE6A /* Diet_Ledger.xcdatamodeld in Sources */,
 				E8C155EA23AA14BA00319E8E /* ACTabScrollView.swift in Sources */,
+				8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */,
 				E867129623A874C30012A80B /* AppDelegate.swift in Sources */,
-				E867129E23A874C30012A80B /* Diet_Ledger.xcdatamodeld in Sources */,
 				E8C155EF23AA1E4B00319E8E /* ContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

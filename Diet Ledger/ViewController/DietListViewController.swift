@@ -12,13 +12,13 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
 
     @IBOutlet weak var tabScrollView: ACTabScrollView!
     
-    var label_name = ["週一\n1","週二\n2","週三\n3","週四\n4","週五\n5","週六\n6","週日\n7"]
+    var label_name = ["週一\n1","週二\n2","週三\n3","週四\n4","週五\n5","週六\n6","週日\n7","週一\n8","週二\n9","週三\n10","週四\n11","週五\n12","週六\n13","週日\n14"]
     var contentViews: [UIView] = []
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        tabScrollView.defaultPage = 1
+        tabScrollView.defaultPage = 6
         tabScrollView.arrowIndicator = true
         tabScrollView.tabSectionBackgroundColor = UIColor(red: 255.0 / 255, green: 222.0 / 255, blue: 173.0 / 255, alpha: 1)
         //tabScrollView.tabSectionHeight = 60
