@@ -67,7 +67,7 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
         
         // if the size of your tab is not fixed, you can adjust the size by the following way.
         label.sizeToFit() // resize the label to the size of content
-        label.frame.size = CGSize(width: label.frame.size.width + 28, height: label.frame.size.height + 36) // add some paddings
+        label.frame.size = CGSize(width: label.frame.size.width + 28, height: label.frame.size.height + 18) // add some paddings
         
         return label
     }
