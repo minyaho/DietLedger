@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8939E72D23AA89BB00D5FE6A /* Diet_Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E867129C23A874C30012A80B /* Diet_Ledger.xcdatamodeld */; };
 		8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */; };
+		8993530523ABD3B7001109FD /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993530423ABD3B7001109FD /* StoreDetailViewController.swift */; };
 		89A2ECF223AA6E4F00258A1C /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */; };
 		E867129623A874C30012A80B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129523A874C30012A80B /* AppDelegate.swift */; };
 		E867129823A874C30012A80B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129723A874C30012A80B /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
+		8993530423ABD3B7001109FD /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		E867129223A874C30012A80B /* Diet Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Ledger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E867129523A874C30012A80B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				E8C155EC23AA163300319E8E /* DietListViewController.swift */,
 				89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */,
 				8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */,
+				8993530423ABD3B7001109FD /* StoreDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A2ECF223AA6E4F00258A1C /* StoreViewController.swift in Sources */,
+				8993530523ABD3B7001109FD /* StoreDetailViewController.swift in Sources */,
 				E8C155EB23AA14BA00319E8E /* ACTabScrollView+Protocol.swift in Sources */,
 				E867129823A874C30012A80B /* ViewController.swift in Sources */,
 				E8C155ED23AA163300319E8E /* DietListViewController.swift in Sources */,

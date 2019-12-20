@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 class AddStoreViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!

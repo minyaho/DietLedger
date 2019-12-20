@@ -15,9 +15,9 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="productor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="product" inverseEntity="Store" syncable="YES"/>
-        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodTpye" inverseName="food" inverseEntity="FoodTpye" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodType" inverseName="food" inverseEntity="FoodType" syncable="YES"/>
     </entity>
-    <entity name="FoodTpye" representedClassName="FoodTpye" isAbstract="YES" syncable="YES" codeGenerationType="class">
+    <entity name="FoodType" representedClassName="FoodType" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="food" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Food" inverseName="type" inverseEntity="Food" syncable="YES"/>
         <relationship name="listfood" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ListFood" inverseName="type" inverseEntity="ListFood" syncable="YES"/>
@@ -26,7 +26,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="belong" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DietList" inverseName="listfood" inverseEntity="DietList" syncable="YES"/>
-        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodTpye" inverseName="listfood" inverseEntity="FoodTpye" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodType" inverseName="listfood" inverseEntity="FoodType" syncable="YES"/>
     </entity>
     <entity name="Store" representedClassName="Store" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -34,13 +34,13 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="dietlist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DietList" inverseName="store" inverseEntity="DietList" syncable="YES"/>
-        <relationship name="product" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Food" inverseName="productor" inverseEntity="Food" syncable="YES"/>
+        <relationship name="product" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Food" inverseName="productor" inverseEntity="Food" syncable="YES"/>
     </entity>
     <elements>
         <element name="DietList" positionX="147.203125" positionY="230.02734375" width="128" height="118"/>
         <element name="DietType" positionX="435.3828125" positionY="246.77734375" width="128" height="73"/>
         <element name="Food" positionX="77.36328125" positionY="-205.08203125" width="128" height="103"/>
-        <element name="FoodTpye" positionX="172.53125" positionY="40.3359375" width="128" height="88"/>
+        <element name="FoodType" positionX="172.53125" positionY="40.3359375" width="128" height="90"/>
         <element name="ListFood" positionX="453.23828125" positionY="32.86328125" width="128" height="103"/>
         <element name="Store" positionX="-54" positionY="-9" width="128" height="135"/>
     </elements>
