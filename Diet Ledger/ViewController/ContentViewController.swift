@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class ContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+
+    // Varible
+    var dayIndex = 0
+    var date = Date()
+    var dietListArrat = [DietList]()
     
-    var category:String = ""
     /*var category: NewsCategory? {
         didSet {
             for news in MockData.newsArray {
@@ -31,11 +36,100 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //print(date)
+        
         //tableView.rowHeight = UITableView.automaticDimension
         //tableView.estimatedRowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        syncData()
+        tableView.reloadData()
+    }
+    
+    // 已經收到記憶體警告
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+        //print("? didReceiveMemoryWarning")
+    }
+    /*
+    // 載入檢視
+    override func loadView() {
+        
+        super.loadView()
+        
+        print("1 loadView")
+    }
+    
+    // 檢視即將出現
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("3 viewWillAppear")
+    }
+    
+    // 檢視即將佈局
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        print("4 viewWillLayoutSubviews")
+    }
+    
+    // 檢視已經佈局
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        print("5 viewDidLayoutSubviews")
+    }
+    
+    // 檢視已經出現
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("6 viewDidAppear")
+    }
+    
+    // 檢視即將消失
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("7 viewWillDisappear")
+    }
+    
+    // 檢視已經消失
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.view = nil
+        print("8 viewDidDisappear")
+    }
+    
+    // 釋放檢視控制器
+    deinit
+    {
+        print("9 \(self) 被釋放")
+    }*/
+    
+    
+    /* Fuction (Head) */
+    // 同步更新Store的Data
+    func syncData() {
+        fetchData{ (done) in
+            if done {
+                //print("Data is ready to be used in table view!")
+                if(dietListArrat.count>0){     // 資料量大於0 顯示TableView
+                    tableView.isHidden = false
+                }else{                      // 反之隱藏TableView
+                    tableView.isHidden = true;
+                }
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
@@ -45,20 +139,26 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return title_name.count
+        return dietListArrat.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let news = newsArray[(indexPath as NSIndexPath).row]
         
+        var tempString = "123"
+        for listFood in (dietListArrat[indexPath.row].listfood)!{
+            let food = listFood as! ListFood
+            tempString = tempString + " " + food.name!
+        }
+        
         // set the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "DietListCell") as! ContentTableViewCell
         //cell.thumbnailImageView.image = UIImage(named: "thumbnail-\(news.id)")
         cell.timeLabel.text = time_name[indexPath.row]
-        cell.itemLabel.text = title_name[indexPath.row]
-        cell.moneyLabel.text = "$"+money_name[indexPath.row]
-        cell.storeLabel.text = store_name[indexPath.row]
-        cell.type.text = String(type_name[indexPath.row])
+        cell.itemLabel.text = tempString
+        cell.moneyLabel.text = "$ " + String(dietListArrat[indexPath.row].price)
+        cell.storeLabel.text = dietListArrat[indexPath.row].store?.name
+        cell.type.text = dietListArrat[indexPath.row].diettype?.name
         cell.type.layer.backgroundColor = UIColor.orange.cgColor
         cell.type.layer.cornerRadius = 25
         cell.type.layer.borderWidth = 2
@@ -92,6 +192,68 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }*/
 
 }
+
+extension ContentViewController{
+    
+    /* CoreData Store Entity (Head)*/
+    // 抓取Store全部資料
+    func fetchData(completion: (_ complete: Bool) -> ()) {
+        guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DietList")
+        do{
+            dietListArrat = try managedContext.fetch(request) as! [DietList]
+            //print("Data fetch has no issue!")
+            completion(true)
+        }
+        catch{
+            print("Can't fetch data: ", error.localizedDescription)
+            completion(false)
+        }
+    }
+    
+    // 刪除Store內的某一筆資料
+    func deleteData(indexPath: IndexPath){
+        guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+        managedContext.delete(dietListArrat[indexPath.row])
+        do{
+            try managedContext.save()
+            //print("Data Deleted!")
+        }
+        catch{
+            print("Can't delete data: ", error.localizedDescription)
+        }
+    }
+    
+    // 找尋Store內name包含string的資料
+    func searchDietList(string: String){
+        
+        if(string != ""){
+            
+            guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DietList")
+            
+            request.predicate = NSPredicate.init(format: "name like[c] %@", "*"+string+"*")
+            do{
+                dietListArrat = try managedContext.fetch(request) as! [DietList]
+                if(dietListArrat.count>0){
+                    tableView.isHidden = false
+                }else{
+                    tableView.isHidden = true;
+                }
+                tableView.reloadData()
+                //print("Data fetch has no issue!")
+            }
+            catch{
+                print("Can't fetch data: ", error.localizedDescription)
+            }
+        }else{
+            syncData()
+            tableView.reloadData()
+        }
+    }
+    /* CoreData Store Entity (Tail)*/
+}
+
 
 class ContentTableViewCell: UITableViewCell {
     

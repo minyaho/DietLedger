@@ -34,6 +34,9 @@
                                         <state key="normal" title="▶">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goToNextMonthAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HA8-dc-FUA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-y4-ZYn">
                                         <rect key="frame" x="60" y="2" width="51.5" height="41"/>
@@ -41,6 +44,9 @@
                                         <state key="normal" title="◀">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goToLastMonthAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bNi-K3-50I"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本月開銷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gm-Pv-oMZ">
                                         <rect key="frame" x="53" y="52" width="66" height="20"/>
@@ -148,6 +154,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tabScrollView" destination="K4a-rX-JDZ" id="pRr-id-HgV"/>
+                        <outlet property="titleDateLabel" destination="RBY-Ip-e3X" id="bN6-Pk-uL8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -157,7 +164,7 @@
         <!--新增飲食-->
         <scene sceneID="jwk-Ev-IRo">
             <objects>
-                <viewController id="VSp-bt-yRv" sceneMemberID="viewController">
+                <viewController id="VSp-bt-yRv" customClass="AddDietViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b7b-4c-RS5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,11 +188,17 @@
                                                 <integer key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectDietTypeAction:" destination="VSp-bt-yRv" eventType="touchUpInside" id="Gac-wY-SsX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vth-BF-Pet">
                                         <rect key="frame" x="95" y="16" width="82" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="選擇店家"/>
+                                        <connections>
+                                            <action selector="selectStoreAction:" destination="VSp-bt-yRv" eventType="touchUpInside" id="87q-7b-yDO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消費金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-rh-XcV">
                                         <rect key="frame" x="315" y="24" width="74" height="22"/>
@@ -292,7 +305,7 @@
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOh-BE-QNZ">
                                         <rect key="frame" x="0.0" y="48" width="404" height="514"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="OrangeWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eoW-zZ-c9J">
                                                 <rect key="frame" x="0.0" y="28" width="404" height="44"/>
@@ -348,6 +361,7 @@
                                                         <constraint firstItem="upu-b1-yAB" firstAttribute="leading" secondItem="zL0-0r-gMU" secondAttribute="leading" constant="15" id="yEO-v5-dQ8"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" name="OrangeWhite"/>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -424,10 +438,108 @@
                     <navigationItem key="navigationItem" title="新增飲食" id="xmi-5M-MP9">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="60F-qV-mk3"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addFoodItemButton" destination="bWf-pH-1cz" id="ukN-uM-EB1"/>
+                        <outlet property="dietDataButton" destination="NC8-Lx-iHs" id="5i6-zA-t2H"/>
+                        <outlet property="dietFoodTableView" destination="GOh-BE-QNZ" id="fNc-NO-RNQ"/>
+                        <outlet property="dietPriceButton" destination="0Aj-rh-XcV" id="fMA-Ny-xt0"/>
+                        <outlet property="dietSaveButton" destination="fNb-5a-sK2" id="MgF-KP-qmB"/>
+                        <outlet property="dietStoreButton" destination="vth-BF-Pet" id="ZtX-Jk-fQF"/>
+                        <outlet property="dietTypeButton" destination="N8P-Pd-Tbn" id="Iub-A8-slm"/>
+                        <segue destination="fzF-h6-cYx" kind="show" identifier="SelectStore" id="p5j-wZ-pI1"/>
+                        <segue destination="145-Af-8HW" kind="show" identifier="SelectDietType" id="6z6-49-xNW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLq-Kc-NYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673.913043478261" y="137.94642857142856"/>
+            <point key="canvasLocation" x="2788" y="138"/>
+        </scene>
+        <!--找尋類型-->
+        <scene sceneID="iiN-5a-ucM">
+            <objects>
+                <viewController id="145-Af-8HW" customClass="DietTypeViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZdG-7T-Fwz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQL-8M-CTZ" userLabel="information view">
+                                <rect key="frame" x="5" y="93" width="404" height="66"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="搜尋飲食類型" translatesAutoresizingMaskIntoConstraints="NO" id="Tbe-qK-Fw6">
+                                        <rect key="frame" x="5" y="5" width="394" height="56"/>
+                                        <color key="barTintColor" name="OrangeWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Tbe-qK-Fw6" secondAttribute="trailing" constant="5" id="3HI-9a-wdT"/>
+                                    <constraint firstItem="Tbe-qK-Fw6" firstAttribute="top" secondItem="FQL-8M-CTZ" secondAttribute="top" constant="5" id="ASa-VW-Jwu"/>
+                                    <constraint firstItem="Tbe-qK-Fw6" firstAttribute="leading" secondItem="FQL-8M-CTZ" secondAttribute="leading" constant="5" id="Asj-ar-W7g"/>
+                                    <constraint firstItem="Tbe-qK-Fw6" firstAttribute="centerY" secondItem="FQL-8M-CTZ" secondAttribute="centerY" id="YnB-dY-7Jq"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tbe-qK-Fw6" secondAttribute="bottom" constant="5" id="epm-uW-FbI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TCh-wH-LDB">
+                                <rect key="frame" x="5" y="159" width="404" height="654"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="DietTypeListCell" textLabel="GIL-qz-fB3" rowHeight="60" style="IBUITableViewCellStyleDefault" id="qE6-I7-aG8">
+                                        <rect key="frame" x="0.0" y="28" width="404" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qE6-I7-aG8" id="7pF-x7-Ivy">
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GIL-qz-fB3">
+                                                    <rect key="frame" x="20" y="0.0" width="340" height="59.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f2T-Sc-OaE" firstAttribute="trailing" secondItem="TCh-wH-LDB" secondAttribute="trailing" constant="5" id="CHA-Jm-8fO"/>
+                            <constraint firstItem="TCh-wH-LDB" firstAttribute="top" secondItem="FQL-8M-CTZ" secondAttribute="bottom" id="Ljx-9v-kRd"/>
+                            <constraint firstAttribute="trailing" secondItem="FQL-8M-CTZ" secondAttribute="trailing" constant="5" id="hap-bR-vdU"/>
+                            <constraint firstItem="f2T-Sc-OaE" firstAttribute="bottom" secondItem="TCh-wH-LDB" secondAttribute="bottom" id="kda-of-fgQ"/>
+                            <constraint firstItem="FQL-8M-CTZ" firstAttribute="top" secondItem="f2T-Sc-OaE" secondAttribute="top" constant="5" id="qr5-K3-3aa"/>
+                            <constraint firstItem="FQL-8M-CTZ" firstAttribute="leading" secondItem="f2T-Sc-OaE" secondAttribute="leading" constant="5" id="r0K-e9-kGl"/>
+                            <constraint firstItem="TCh-wH-LDB" firstAttribute="leading" secondItem="f2T-Sc-OaE" secondAttribute="leading" constant="5" id="uuA-ip-nZj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f2T-Sc-OaE"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="找尋類型" id="o6K-jx-tLf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YeS-LO-be7">
+                            <connections>
+                                <action selector="addDietTypeAction:" destination="145-Af-8HW" id="YVl-MW-HLu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dietTypeSearchBar" destination="Tbe-qK-Fw6" id="7Cy-As-nTe"/>
+                        <outlet property="dietTypeTableView" destination="TCh-wH-LDB" id="HOm-gv-hUJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVk-dZ-ApX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2786.9565217391305" y="-569.19642857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LzI-zS-rtC">
@@ -460,45 +572,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-Rb-ubq" userLabel="information view">
                                 <rect key="frame" x="5" y="94" width="404" height="66"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lm3-xe-MTs">
-                                        <rect key="frame" x="320" y="15" width="69" height="36"/>
-                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="lm3-xe-MTs" secondAttribute="height" multiplier="73:38" id="AA6-ug-CW6"/>
-                                            <constraint firstAttribute="height" constant="36" id="hMc-bd-Gwj"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="找尋">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="FindStoreAction:" destination="fzF-h6-cYx" eventType="touchUpInside" id="fvs-jJ-0H4"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" disabledBackground="I" translatesAutoresizingMaskIntoConstraints="NO" id="VJr-c1-zF1">
-                                        <rect key="frame" x="15" y="15" width="295" height="36"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <searchBar contentMode="redraw" placeholder="搜尋店家" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-2q-7Mr">
+                                        <rect key="frame" x="5" y="5" width="394" height="56"/>
+                                        <color key="barTintColor" name="OrangeWhite"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="VJr-c1-zF1" firstAttribute="leading" secondItem="SaM-Rb-ubq" secondAttribute="leading" constant="15" id="0Y6-b1-FmV"/>
-                                    <constraint firstItem="VJr-c1-zF1" firstAttribute="centerY" secondItem="lm3-xe-MTs" secondAttribute="centerY" id="5I5-sQ-pPK"/>
-                                    <constraint firstItem="lm3-xe-MTs" firstAttribute="top" secondItem="SaM-Rb-ubq" secondAttribute="top" constant="15" id="5oD-zT-wgI"/>
-                                    <constraint firstItem="VJr-c1-zF1" firstAttribute="top" secondItem="SaM-Rb-ubq" secondAttribute="top" constant="15" id="EZX-SW-OyU"/>
-                                    <constraint firstItem="lm3-xe-MTs" firstAttribute="leading" secondItem="VJr-c1-zF1" secondAttribute="trailing" constant="10" id="Obd-RW-ROM"/>
-                                    <constraint firstAttribute="bottom" secondItem="lm3-xe-MTs" secondAttribute="bottom" constant="15" id="PYR-c5-SXO"/>
-                                    <constraint firstAttribute="trailing" secondItem="lm3-xe-MTs" secondAttribute="trailing" constant="15" id="PlP-5L-fTj"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="aGK-KY-3Fj"/>
-                                    <constraint firstAttribute="trailing" secondItem="lm3-xe-MTs" secondAttribute="trailing" constant="15" id="pvB-ep-LOR"/>
+                                    <constraint firstItem="nD3-2q-7Mr" firstAttribute="leading" secondItem="SaM-Rb-ubq" secondAttribute="leading" constant="5" id="7A3-vb-GsI"/>
+                                    <constraint firstAttribute="bottom" secondItem="nD3-2q-7Mr" secondAttribute="bottom" constant="5" id="7bB-nq-Bw6"/>
+                                    <constraint firstItem="nD3-2q-7Mr" firstAttribute="centerY" secondItem="SaM-Rb-ubq" secondAttribute="centerY" id="G0Y-Fe-UBN"/>
+                                    <constraint firstAttribute="trailing" secondItem="nD3-2q-7Mr" secondAttribute="trailing" constant="5" id="Iv1-ld-lU6"/>
+                                    <constraint firstItem="nD3-2q-7Mr" firstAttribute="top" secondItem="SaM-Rb-ubq" secondAttribute="top" constant="5" id="uVg-ch-08U"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -557,7 +647,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="findStoreTextField" destination="VJr-c1-zF1" id="Qc7-bn-1U1"/>
+                        <outlet property="searchDisplayController" destination="x8l-LW-bhh" id="YBd-u4-UZY"/>
+                        <outlet property="storeSearchBar" destination="nD3-2q-7Mr" id="8hh-OK-ccg"/>
                         <outlet property="storeTableView" destination="h9O-11-mGw" id="hfb-To-OhD"/>
                         <segue destination="Ebv-pL-KNw" kind="show" identifier="StoreDetail" id="OPi-df-irV"/>
                     </connections>
@@ -590,8 +681,24 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <searchDisplayController id="jQo-xI-2vK">
+                    <connections>
+                        <outlet property="delegate" destination="fzF-h6-cYx" id="V3v-vQ-SHG"/>
+                        <outlet property="searchContentsController" destination="fzF-h6-cYx" id="1q3-gO-pHi"/>
+                        <outlet property="searchResultsDataSource" destination="fzF-h6-cYx" id="vsv-sn-VoE"/>
+                        <outlet property="searchResultsDelegate" destination="fzF-h6-cYx" id="PtW-LX-JRu"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="x8l-LW-bhh">
+                    <connections>
+                        <outlet property="delegate" destination="fzF-h6-cYx" id="dYv-BC-Tyu"/>
+                        <outlet property="searchContentsController" destination="fzF-h6-cYx" id="jG1-ie-Peg"/>
+                        <outlet property="searchResultsDataSource" destination="fzF-h6-cYx" id="73N-92-qUk"/>
+                        <outlet property="searchResultsDelegate" destination="fzF-h6-cYx" id="YSD-No-lSg"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1042" y="956"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="955.58035714285711"/>
         </scene>
         <!--店家資訊-->
         <scene sceneID="oku-jE-y68">
@@ -1191,7 +1298,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="OrangeWhite"/>
                         <constraints>
                             <constraint firstItem="802-85-HHw" firstAttribute="top" secondItem="Gh9-sU-24m" secondAttribute="bottom" id="PiB-jf-25G"/>
                             <constraint firstAttribute="trailing" secondItem="802-85-HHw" secondAttribute="trailing" id="Qs3-zp-E2n"/>
@@ -1208,9 +1315,115 @@
             </objects>
             <point key="canvasLocation" x="1950.7246376811595" y="-568.52678571428567"/>
         </scene>
+        <!--找尋店家-->
+        <scene sceneID="Azp-m0-tIv">
+            <objects>
+                <viewController id="PKq-0y-lJR" customClass="StoreViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Usw-FD-3be">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaE-V0-EFq" userLabel="information view">
+                                <rect key="frame" x="5" y="50" width="404" height="66"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="搜尋店家" translatesAutoresizingMaskIntoConstraints="NO" id="nje-bF-Fvv">
+                                        <rect key="frame" x="5" y="5" width="394" height="56"/>
+                                        <color key="barTintColor" name="OrangeWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="nje-bF-Fvv" firstAttribute="top" secondItem="HaE-V0-EFq" secondAttribute="top" constant="5" id="JZx-yY-eMm"/>
+                                    <constraint firstItem="nje-bF-Fvv" firstAttribute="leading" secondItem="HaE-V0-EFq" secondAttribute="leading" constant="5" id="PTL-jR-eYL"/>
+                                    <constraint firstItem="nje-bF-Fvv" firstAttribute="centerY" secondItem="HaE-V0-EFq" secondAttribute="centerY" id="REN-aR-NpV"/>
+                                    <constraint firstAttribute="trailing" secondItem="nje-bF-Fvv" secondAttribute="trailing" constant="5" id="ol4-lj-HTM"/>
+                                    <constraint firstAttribute="bottom" secondItem="nje-bF-Fvv" secondAttribute="bottom" constant="5" id="tfC-gA-aPg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cg2-um-mQe">
+                                <rect key="frame" x="5" y="116" width="404" height="746"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StoreListCell" textLabel="Z8c-eY-US8" detailTextLabel="9c0-ie-5hw" rowHeight="60" style="IBUITableViewCellStyleValue1" id="VRp-kM-6EH">
+                                        <rect key="frame" x="0.0" y="28" width="404" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VRp-kM-6EH" id="CB1-z8-boL">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z8c-eY-US8">
+                                                    <rect key="frame" x="20" y="20" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9c0-ie-5hw">
+                                                    <rect key="frame" x="322" y="20" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AVX-C5-mG0" firstAttribute="bottom" secondItem="Cg2-um-mQe" secondAttribute="bottom" id="5oL-1x-jpr"/>
+                            <constraint firstItem="HaE-V0-EFq" firstAttribute="leading" secondItem="AVX-C5-mG0" secondAttribute="leading" constant="5" id="E7P-HG-q92"/>
+                            <constraint firstItem="Cg2-um-mQe" firstAttribute="leading" secondItem="AVX-C5-mG0" secondAttribute="leading" constant="5" id="Jq7-dN-iW5"/>
+                            <constraint firstItem="HaE-V0-EFq" firstAttribute="top" secondItem="AVX-C5-mG0" secondAttribute="top" constant="6" id="bjz-ez-YNQ"/>
+                            <constraint firstItem="AVX-C5-mG0" firstAttribute="trailing" secondItem="Cg2-um-mQe" secondAttribute="trailing" constant="5" id="mD4-vj-dDe"/>
+                            <constraint firstItem="AVX-C5-mG0" firstAttribute="trailing" secondItem="HaE-V0-EFq" secondAttribute="trailing" constant="5" id="tXo-8f-lE9"/>
+                            <constraint firstItem="Cg2-um-mQe" firstAttribute="top" secondItem="HaE-V0-EFq" secondAttribute="bottom" id="xRR-j0-cig"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AVX-C5-mG0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="找尋店家" id="oXy-0z-k26">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4Y5-rL-aOf"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="x8l-LW-bhh" id="Kor-eZ-TFR"/>
+                        <outlet property="storeSearchBar" destination="nje-bF-Fvv" id="CJU-H2-jxt"/>
+                        <outlet property="storeTableView" destination="Cg2-um-mQe" id="8r4-CZ-MdT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rRY-el-MdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="lay-hd-sq9">
+                    <connections>
+                        <outlet property="delegate" destination="PKq-0y-lJR" id="K3w-qR-Ylp"/>
+                        <outlet property="searchContentsController" destination="PKq-0y-lJR" id="KiF-IC-jlf"/>
+                        <outlet property="searchResultsDataSource" destination="PKq-0y-lJR" id="d8I-eQ-zxn"/>
+                        <outlet property="searchResultsDelegate" destination="PKq-0y-lJR" id="gsu-cH-JtL"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="iZP-4W-8N1">
+                    <connections>
+                        <outlet property="delegate" destination="PKq-0y-lJR" id="hBA-lp-V6x"/>
+                        <outlet property="searchContentsController" destination="PKq-0y-lJR" id="LLr-L4-C6t"/>
+                        <outlet property="searchResultsDataSource" destination="PKq-0y-lJR" id="gph-IZ-mzP"/>
+                        <outlet property="searchResultsDelegate" destination="PKq-0y-lJR" id="Psg-vc-I8j"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1039.1304347826087" y="955.58035714285711"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="I" width="16" height="16"/>
         <image name="TabIconDietList" width="16" height="16"/>
         <image name="TabIconSearch" width="16" height="16"/>
         <namedColor name="OrangeWhite">
@@ -1218,6 +1431,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="p5j-wZ-pI1"/>
         <segue reference="YQj-v8-9gM"/>
     </inferredMetricsTieBreakers>
 </document>

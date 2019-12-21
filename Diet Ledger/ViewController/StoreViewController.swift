@@ -11,13 +11,15 @@ import CoreData
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchBarDelegate{
     
     // Outlet
     @IBOutlet weak var storeTableView: UITableView!
-    @IBOutlet weak var findStoreTextField: UITextField!
+    @IBOutlet weak var storeSearchBar: UISearchBar!
+    
 
     // Varables
+    var selectMode = false
     var storeArray = [Store]()
     var selectStore:Store?
     
@@ -36,10 +38,13 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         storeTableView.isHidden = true
         
         // findStoreTextField 設定
+        /*
         findStoreTextField.delegate = self
         findStoreTextField.clearButtonMode = .whileEditing  // 輸入框右邊顯示清除按鈕時機 這邊選擇當編輯時顯示
         findStoreTextField.placeholder = "請輸入店家名稱"         // 尚未輸入時的預設顯示提示文字
         findStoreTextField.returnKeyType = .done            // 鍵盤上的 return 鍵樣式 這邊選擇 Done
+        findStoreTextField.leftView = setIcon(image: #imageLiteral(resourceName: "TextFieldIconSearch"))
+        findStoreTextField.leftViewMode = .always*/
         //findStoreTextField.textColor = UIColor.whiteColor() // 輸入文字的顏色
         //findStoreTextField.backgroundColor = UIColor.lightGrayColor // UITextField 的背景顏色
         
@@ -55,6 +60,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //将长按手势添加到需要实现长按操作的视图里
         //self.storeTableView!.addGestureRecognizer(longPress)
         
+        // storeSearchBar 設定
+        storeSearchBar.delegate = self
+        
+        // 第一次資料更新
         syncData()
         storeTableView.reloadData()
     }
@@ -68,12 +77,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /* ViewFunction (Tail) */
     
     /* IBAction Fuction (Head)*/
-    @IBAction func FindStoreAction(_ sender: Any) {
-        
-        if let string = findStoreTextField.text{
-            searchStore(string: string)
-        }
-    }
+    
+    
+    
+
     /* IBAction Fuction (Tail)*/
 
     /* Fuction (Head) */
@@ -94,6 +101,9 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StoreDetail", let StoreDetail = segue.destination as? StoreDetailViewController {
             StoreDetail.selectStore = selectStore
+        }
+        else if segue.identifier == "SelectStore", let addDietVC = segue.destination as? AddDietViewController {
+            addDietVC.dietStore = selectStore
         }
     }
     /* Fuction (Tail) */
@@ -146,11 +156,19 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(
             at: indexPath, animated: true)
-        
-        //let name = storeArray[indexPath.row].name
-        //print("選擇的是 \(String(describing: name))")
-        selectStore = storeArray[indexPath.row]
-        self.performSegue(withIdentifier: "StoreDetail", sender: self)
+        if(!selectMode){
+            //let name = storeArray[indexPath.row].name
+            //print("選擇的是 \(String(describing: name))")
+            selectStore = storeArray[indexPath.row]
+            self.performSegue(withIdentifier: "StoreDetail", sender: self)
+        }else{
+            print("Post Notification")
+            selectStore = storeArray[indexPath.row]
+            let notificationName = Notification.Name("storeUpdated")
+            NotificationCenter.default.post(name: notificationName, object: selectStore, userInfo: ["store":self.selectStore!]) //傳一個名稱叫”store”的selectStore值過去
+            
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     
@@ -180,14 +198,30 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /*TableView Function (Tail) */
     
     
-    /*TextField Function (Head) */
+    /*TextField Function (Head)
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField){
+        print("textFieldDidBeginEditing:" + textField.text!)
+    }
+    
+    // 可能進入結束編輯狀態
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("textFieldShouldEndEditing:" + textField.text!)
+        return true
+    }
+    
+    // 結束編輯狀態(意指完成輸入或離開焦點)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("textFieldDidEndEditing:" + textField.text!)
     }
     
     // 當按下右下角的return鍵時觸發
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() // 關閉鍵盤
+        searchStore(string: textField.text!)
         return true
     }
     
@@ -202,8 +236,28 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return true
 
     }
-    /*TextField Function (Tail) */
     
+    func setIcon(image: UIImage) -> UIView {
+        let iconView = UIImageView(frame:
+            CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image = #imageLiteral(resourceName: "TextFieldIconSearch")
+        let iconContainerView: UIView = UIView(frame:
+            CGRect(x: 20, y: 0, width: 30, height: 30))
+        iconContainerView.addSubview(iconView)
+        return iconContainerView
+    }
+    TextField Function (Tail) */
+
+    /*SearchBar Function (Head) */
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchStore(string: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+    /*SearchBar Function (Tail) */
 }
 
 extension StoreViewController{
