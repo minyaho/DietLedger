@@ -49,7 +49,7 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
         reloadTabScrollView()
         
         /* ACTabScrollView 初始化設定 (Head) */
-        tabScrollView.defaultPage = Int(dateComponents.day!)
+        tabScrollView.defaultPage = Int(dateComponents.day!)-1
         tabScrollView.arrowIndicator = true
         tabScrollView.tabSectionBackgroundColor = UIColor(red: 255.0 / 255, green: 222.0 / 255, blue: 173.0 / 255, alpha: 1)
         //tabScrollView.tabSectionHeight = 60

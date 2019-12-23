@@ -18,6 +18,9 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var date = Date()
     var dietListArrat = [DietList]()
     
+    let dateFormat:DateFormatter = DateFormatter()
+    let calendar = Calendar.current
+    
     /*var category: NewsCategory? {
         didSet {
             for news in MockData.newsArray {
@@ -27,16 +30,16 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }*/
+    /*
     var title_name = ["麵包麵包麵包麵包麵包麵包麵包", "漢堡", "熱狗"]
     var store_name = ["早安美滋城","幸福漢堡店","麥當勞"]
     var type_name = ["早","中","晚"]
     var time_name = ["9:33","11:55","19:30"]
-    var money_name = ["700","55845","545"]
+    var money_name = ["700","55845","545"]*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //print(date)
         
         //tableView.rowHeight = UITableView.automaticDimension
         //tableView.estimatedRowHeight = 80
@@ -154,7 +157,9 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         // set the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "DietListCell") as! ContentTableViewCell
         //cell.thumbnailImageView.image = UIImage(named: "thumbnail-\(news.id)")
-        cell.timeLabel.text = time_name[indexPath.row]
+        dateFormat.dateFormat = "HH:mm"
+        cell.timeLabel.text = dateFormat.string(from: dietListArrat[indexPath.row].time!)
+        //print(dietListArrat[indexPath.row].time!)
         cell.itemLabel.text = tempString
         cell.moneyLabel.text = "$ " + String(dietListArrat[indexPath.row].price)
         cell.storeLabel.text = dietListArrat[indexPath.row].store?.name
@@ -198,9 +203,30 @@ extension ContentViewController{
     /* CoreData Store Entity (Head)*/
     // 抓取Store全部資料
     func fetchData(completion: (_ complete: Bool) -> ()) {
+        //print(date)
+        let dateComponents = calendar.dateComponents([.year, .month, .day, .weekday, .hour, .minute, .second], from: date)
+        var startDateComponents = DateComponents()
+        startDateComponents.year = dateComponents.year
+        startDateComponents.month = dateComponents.month
+        startDateComponents.day = dayIndex
+        startDateComponents.hour = 0
+        startDateComponents.minute = 0
+        startDateComponents.second = 0
+        startDateComponents.timeZone = TimeZone.current
+        let startDate = calendar.date(from: startDateComponents)
+        let endDate = calendar.date(byAdding: .day, value: 1, to: startDate!)
+        dateFormat.dateFormat = "MM/dd HH:mm:ss"
+//        print("****")
+        print(dateFormat.string(from: startDate!))
+        print(dateFormat.string(from: endDate!))
+//        print(dateFormat.string(from: endDate!))
+//        print("****")
+        //print(startDate!.timeIntervalSince1970)
+        //print(endDate!.timeIntervalSince1970)
+        
         guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DietList")
-        //request.predicate = NSPredicate.init(format: "time == %@", <#T##args: CVarArg...##CVarArg#>)
+        request.predicate = NSPredicate(format: "(time > %@) AND (time <= %@)", startDate! as NSDate, endDate! as NSDate)
         do{
             dietListArrat = try managedContext.fetch(request) as! [DietList]
             //print("Data fetch has no issue!")
