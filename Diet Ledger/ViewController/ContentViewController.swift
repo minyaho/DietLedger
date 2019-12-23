@@ -145,7 +145,7 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let news = newsArray[(indexPath as NSIndexPath).row]
         
-        var tempString = "123"
+        var tempString = ""
         for listFood in (dietListArrat[indexPath.row].listfood)!{
             let food = listFood as! ListFood
             tempString = tempString + " " + food.name!
@@ -200,6 +200,7 @@ extension ContentViewController{
     func fetchData(completion: (_ complete: Bool) -> ()) {
         guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DietList")
+        //request.predicate = NSPredicate.init(format: "time == %@", <#T##args: CVarArg...##CVarArg#>)
         do{
             dietListArrat = try managedContext.fetch(request) as! [DietList]
             //print("Data fetch has no issue!")

@@ -170,10 +170,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSO-uw-wPQ" userLabel="information view">
-                                <rect key="frame" x="5" y="94" width="404" height="95"/>
+                                <rect key="frame" x="5" y="94" width="404" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8P-Pd-Tbn">
-                                        <rect key="frame" x="15" y="17.5" width="60" height="60"/>
+                                        <rect key="frame" x="15" y="15" width="60" height="60"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Lrd-YX-2xM"/>
@@ -193,7 +193,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vth-BF-Pet">
-                                        <rect key="frame" x="95" y="16" width="82" height="36"/>
+                                        <rect key="frame" x="95" y="13" width="82" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="選擇店家"/>
                                         <connections>
@@ -201,37 +201,38 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消費金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-rh-XcV">
-                                        <rect key="frame" x="315" y="24" width="74" height="22"/>
+                                        <rect key="frame" x="315" y="24.5" width="74" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgs-KU-VnT">
-                                        <rect key="frame" x="338" y="50" width="51" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgs-KU-VnT">
+                                        <rect key="frame" x="362" y="44" width="27" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NC8-Lx-iHs">
-                                        <rect key="frame" x="95" y="47" width="66" height="32"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="設定時間" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dc4-i4-n6a">
+                                        <rect key="frame" x="97" y="49" width="69.5" height="20"/>
+                                        <color key="backgroundColor" name="OrangeWhite"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="設定時間"/>
-                                    </button>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="Sgs-KU-VnT" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="10" id="2ZB-04-sUy"/>
                                     <constraint firstItem="N8P-Pd-Tbn" firstAttribute="leading" secondItem="rSO-uw-wPQ" secondAttribute="leading" constant="15" id="42u-Kl-QaR"/>
-                                    <constraint firstItem="vth-BF-Pet" firstAttribute="top" secondItem="rSO-uw-wPQ" secondAttribute="top" constant="16" id="5aG-1H-nkv"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="5ok-yb-3hf"/>
-                                    <constraint firstItem="NC8-Lx-iHs" firstAttribute="leading" secondItem="N8P-Pd-Tbn" secondAttribute="trailing" constant="20" id="7Bw-f9-sMj"/>
-                                    <constraint firstAttribute="bottom" secondItem="NC8-Lx-iHs" secondAttribute="bottom" constant="16" id="PBV-SP-Qh5"/>
-                                    <constraint firstItem="Sgs-KU-VnT" firstAttribute="top" secondItem="0Aj-rh-XcV" secondAttribute="bottom" constant="4" id="Swr-ti-t5Q"/>
+                                    <constraint firstItem="dc4-i4-n6a" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="14" id="4Lu-UB-fBu"/>
+                                    <constraint firstAttribute="height" constant="90" id="5ok-yb-3hf"/>
+                                    <constraint firstItem="vth-BF-Pet" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="-14" id="Xzo-tX-UYF"/>
                                     <constraint firstAttribute="trailing" secondItem="0Aj-rh-XcV" secondAttribute="trailing" constant="15" id="cJi-iM-XhL"/>
+                                    <constraint firstItem="0Aj-rh-XcV" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="-10" id="efz-vK-jOf"/>
                                     <constraint firstItem="N8P-Pd-Tbn" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" id="eld-Cm-3jL"/>
                                     <constraint firstItem="vth-BF-Pet" firstAttribute="leading" secondItem="N8P-Pd-Tbn" secondAttribute="trailing" constant="20" id="gdO-Mq-CEB"/>
-                                    <constraint firstItem="NC8-Lx-iHs" firstAttribute="top" secondItem="vth-BF-Pet" secondAttribute="bottom" constant="-5" id="im5-gx-8ZI"/>
-                                    <constraint firstItem="0Aj-rh-XcV" firstAttribute="top" secondItem="rSO-uw-wPQ" secondAttribute="top" constant="24" id="y5S-pJ-gFg"/>
-                                    <constraint firstAttribute="trailing" secondItem="Sgs-KU-VnT" secondAttribute="trailing" constant="15" id="ytP-NX-5gQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sgs-KU-VnT" secondAttribute="trailing" constant="15" id="maC-lp-0oV"/>
+                                    <constraint firstItem="dc4-i4-n6a" firstAttribute="leading" secondItem="N8P-Pd-Tbn" secondAttribute="trailing" constant="22" id="w0X-29-tqx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -240,7 +241,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVM-SP-yVt" userLabel="content view">
-                                <rect key="frame" x="5" y="195" width="404" height="618"/>
+                                <rect key="frame" x="5" y="190" width="404" height="623"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-nu-Mfe">
                                         <rect key="frame" x="179" y="10" width="70" height="32"/>
@@ -304,10 +305,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOh-BE-QNZ">
-                                        <rect key="frame" x="0.0" y="48" width="404" height="514"/>
+                                        <rect key="frame" x="0.0" y="48" width="404" height="519"/>
                                         <color key="backgroundColor" name="OrangeWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eoW-zZ-c9J">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DietFoodCell" id="eoW-zZ-c9J" customClass="DietFoodViewCell" customModule="Diet_Ledger" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="404" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eoW-zZ-c9J" id="zL0-0r-gMU">
@@ -362,11 +363,17 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" name="OrangeWhite"/>
+                                                <connections>
+                                                    <outlet property="name" destination="upu-b1-yAB" id="mxs-WC-3SH"/>
+                                                    <outlet property="number" destination="R5M-p1-Bbh" id="imf-eJ-Ug8"/>
+                                                    <outlet property="price" destination="QSo-hm-6XW" id="Zuy-Sa-p5d"/>
+                                                    <outlet property="type" destination="bBr-AV-eff" id="YwF-wu-cnX"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWf-pH-1cz">
-                                        <rect key="frame" x="15" y="574" width="177" height="32"/>
+                                        <rect key="frame" x="15" y="579" width="177" height="32"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="新增品項">
@@ -377,9 +384,12 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addNewFoodAction:" destination="VSp-bt-yRv" eventType="touchUpInside" id="mcO-Ca-z0X"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNb-5a-sK2">
-                                        <rect key="frame" x="212" y="574" width="177" height="32"/>
+                                        <rect key="frame" x="212" y="579" width="177" height="32"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="完成紀錄">
@@ -390,6 +400,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveThisDietAction:" destination="VSp-bt-yRv" eventType="touchUpInside" id="oyq-Fg-jq6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -440,19 +453,116 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addFoodItemButton" destination="bWf-pH-1cz" id="ukN-uM-EB1"/>
-                        <outlet property="dietDataButton" destination="NC8-Lx-iHs" id="5i6-zA-t2H"/>
                         <outlet property="dietFoodTableView" destination="GOh-BE-QNZ" id="fNc-NO-RNQ"/>
-                        <outlet property="dietPriceButton" destination="0Aj-rh-XcV" id="fMA-Ny-xt0"/>
+                        <outlet property="dietPriceLabel" destination="Sgs-KU-VnT" id="qRt-56-9NP"/>
                         <outlet property="dietSaveButton" destination="fNb-5a-sK2" id="MgF-KP-qmB"/>
                         <outlet property="dietStoreButton" destination="vth-BF-Pet" id="ZtX-Jk-fQF"/>
                         <outlet property="dietTypeButton" destination="N8P-Pd-Tbn" id="Iub-A8-slm"/>
+                        <outlet property="setTimeTextField" destination="dc4-i4-n6a" id="Gah-Lv-qE6"/>
+                        <outlet property="totalCostLabel" destination="rSO-uw-wPQ" id="5nb-3B-ak9"/>
                         <segue destination="fzF-h6-cYx" kind="show" identifier="SelectStore" id="p5j-wZ-pI1"/>
                         <segue destination="145-Af-8HW" kind="show" identifier="SelectDietType" id="6z6-49-xNW"/>
+                        <segue destination="s90-ng-ltS" kind="show" identifier="SelectStoreFood" id="uXj-qm-XvD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLq-Kc-NYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="138"/>
+            <point key="canvasLocation" x="2786.9565217391305" y="137.94642857142856"/>
+        </scene>
+        <!--選擇品項-->
+        <scene sceneID="i4F-RL-4t7">
+            <objects>
+                <viewController id="s90-ng-ltS" customClass="StoreFoodViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bwp-JB-slD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzu-ag-CjY" userLabel="information view">
+                                <rect key="frame" x="5" y="93" width="404" height="66"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="搜尋飲食類型" translatesAutoresizingMaskIntoConstraints="NO" id="Ivp-aX-6b8">
+                                        <rect key="frame" x="5" y="5" width="394" height="56"/>
+                                        <color key="barTintColor" name="OrangeWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ivp-aX-6b8" secondAttribute="trailing" constant="5" id="0ja-Ff-zhz"/>
+                                    <constraint firstItem="Ivp-aX-6b8" firstAttribute="leading" secondItem="jzu-ag-CjY" secondAttribute="leading" constant="5" id="Asj-uD-F9j"/>
+                                    <constraint firstItem="Ivp-aX-6b8" firstAttribute="centerY" secondItem="jzu-ag-CjY" secondAttribute="centerY" id="J6f-CK-wAX"/>
+                                    <constraint firstItem="Ivp-aX-6b8" firstAttribute="top" secondItem="jzu-ag-CjY" secondAttribute="top" constant="5" id="WJT-uE-dd1"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ivp-aX-6b8" secondAttribute="bottom" constant="5" id="qHr-OX-1Xr"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DeX-Xv-Avh">
+                                <rect key="frame" x="5" y="159" width="404" height="654"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StoreFoodListCell" textLabel="bK8-9U-SGO" detailTextLabel="Q8V-z0-EuX" rowHeight="60" style="IBUITableViewCellStyleValue1" id="LeT-r4-Gw8">
+                                        <rect key="frame" x="0.0" y="28" width="404" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LeT-r4-Gw8" id="wwp-YO-YSv">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bK8-9U-SGO">
+                                                    <rect key="frame" x="20" y="20" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q8V-z0-EuX">
+                                                    <rect key="frame" x="322" y="20" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DeX-Xv-Avh" firstAttribute="bottom" secondItem="6YK-IF-AgR" secondAttribute="bottom" id="0h5-56-M9C"/>
+                            <constraint firstItem="6YK-IF-AgR" firstAttribute="trailing" secondItem="jzu-ag-CjY" secondAttribute="trailing" constant="5" id="4NU-k9-t9V"/>
+                            <constraint firstItem="DeX-Xv-Avh" firstAttribute="leading" secondItem="6YK-IF-AgR" secondAttribute="leading" constant="5" id="MoU-w5-80G"/>
+                            <constraint firstItem="6YK-IF-AgR" firstAttribute="trailing" secondItem="DeX-Xv-Avh" secondAttribute="trailing" constant="5" id="NQj-22-lTM"/>
+                            <constraint firstItem="jzu-ag-CjY" firstAttribute="top" secondItem="6YK-IF-AgR" secondAttribute="top" constant="5" id="W4s-QW-iCw"/>
+                            <constraint firstItem="jzu-ag-CjY" firstAttribute="leading" secondItem="6YK-IF-AgR" secondAttribute="leading" constant="5" id="j6D-mt-TXF"/>
+                            <constraint firstItem="DeX-Xv-Avh" firstAttribute="top" secondItem="jzu-ag-CjY" secondAttribute="bottom" id="jOr-tY-up8"/>
+                            <constraint firstItem="DeX-Xv-Avh" firstAttribute="top" secondItem="jzu-ag-CjY" secondAttribute="bottom" id="pZX-Ye-q30"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6YK-IF-AgR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="選擇品項" id="LQ8-mR-kIB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IOa-Il-PWl">
+                            <connections>
+                                <action selector="addStoreFoodAction:" destination="s90-ng-ltS" id="1Vn-te-CjL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="foodSearchBar" destination="Ivp-aX-6b8" id="p7j-Od-Iov"/>
+                        <outlet property="storeFoodTableView" destination="DeX-Xv-Avh" id="oub-a3-cwZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSr-dU-SXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3646" y="138"/>
         </scene>
         <!--找尋類型-->
         <scene sceneID="iiN-5a-ucM">
@@ -1249,7 +1359,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="店家名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdL-ma-4Ph">
-                                                            <rect key="frame" x="0.0" y="30" width="220" height="20"/>
+                                                            <rect key="frame" x="8" y="30" width="220" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

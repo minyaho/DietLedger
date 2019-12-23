@@ -24,6 +24,7 @@
     </entity>
     <entity name="ListFood" representedClassName="ListFood" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="belong" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DietList" inverseName="listfood" inverseEntity="DietList" syncable="YES"/>
         <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodType" inverseName="listfood" inverseEntity="FoodType" syncable="YES"/>
@@ -41,7 +42,7 @@
         <element name="DietType" positionX="435.3828125" positionY="246.77734375" width="128" height="73"/>
         <element name="Food" positionX="77.36328125" positionY="-205.08203125" width="128" height="103"/>
         <element name="FoodType" positionX="172.53125" positionY="40.3359375" width="128" height="90"/>
-        <element name="ListFood" positionX="453.23828125" positionY="32.86328125" width="128" height="103"/>
+        <element name="ListFood" positionX="453.23828125" positionY="32.86328125" width="128" height="120"/>
         <element name="Store" positionX="-54" positionY="-9" width="128" height="135"/>
     </elements>
 </model>

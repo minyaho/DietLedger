@@ -13,6 +13,7 @@
 		8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */; };
 		8993530523ABD3B7001109FD /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993530423ABD3B7001109FD /* StoreDetailViewController.swift */; };
 		89A2ECF223AA6E4F00258A1C /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */; };
+		89C349BA23B0A33600B74C7D /* StoreFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C349B923B0A33600B74C7D /* StoreFoodViewController.swift */; };
 		E867129623A874C30012A80B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129523A874C30012A80B /* AppDelegate.swift */; };
 		E867129823A874C30012A80B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867129723A874C30012A80B /* ViewController.swift */; };
 		E867129B23A874C30012A80B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E867129923A874C30012A80B /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		8993530423ABD3B7001109FD /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		89A2ECF123AA6E4F00258A1C /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		89C349B923B0A33600B74C7D /* StoreFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreFoodViewController.swift; sourceTree = "<group>"; };
 		E867129223A874C30012A80B /* Diet Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Ledger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E867129523A874C30012A80B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E867129723A874C30012A80B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */,
 				8993530423ABD3B7001109FD /* StoreDetailViewController.swift */,
 				890C985623AE41DC00214C5D /* AddDietViewController.swift */,
+				89C349B923B0A33600B74C7D /* StoreFoodViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */,
 				E867129623A874C30012A80B /* AppDelegate.swift in Sources */,
 				E8C155EF23AA1E4B00319E8E /* ContentViewController.swift in Sources */,
+				89C349BA23B0A33600B74C7D /* StoreFoodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
