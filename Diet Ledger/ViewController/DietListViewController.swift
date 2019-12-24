@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabScrollViewDataSource{
 
     // Outlet
     @IBOutlet weak var tabScrollView: ACTabScrollView!
     @IBOutlet weak var titleDateLabel: UILabel!
+    @IBOutlet var thisMonthCostLabel: UILabel!
+    @IBOutlet var thisMonthDietNumberLabel: UILabel!
     
     // Varible
     /*
@@ -22,6 +27,7 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
     var calculatedDate = Date()
     var labelData: [String] = []
     var dateData: [Date] = []
+    var dietListArray: [DietList] = []
     
     // Constant
     /*
@@ -61,16 +67,36 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
         /* ACTabScrollView 初始化設定 (Tail) */
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super .viewDidAppear(animated)
+        syncData()
+    }
+    
+    func syncData() {
+        fetchData{ (done) in
+            if done {
+                var tempValue = 0.0
+                for diet in dietListArray{
+                    tempValue += diet.price
+                }
+                thisMonthCostLabel.text = "$" + String(tempValue)
+                thisMonthDietNumberLabel.text = String(dietListArray.count)
+            }
+        }
+    }
+    
     /* IBAction (Head) */
     @IBAction func goToLastMonthAction(_ sender: Any) {
         calculatedDate = calendar.date(byAdding: .month, value: -1, to: calculatedDate)!
         titleDateLabel.text = dateFormat.string(from: calculatedDate)
+        syncData()
         reloadTabScrollView()
     }
     
     @IBAction func goToNextMonthAction(_ sender: Any) {
         calculatedDate = calendar.date(byAdding: .month, value: 1, to: calculatedDate)!
         titleDateLabel.text = dateFormat.string(from: calculatedDate)
+        syncData()
         reloadTabScrollView()
     }
     
@@ -78,7 +104,7 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
     
     // MARK: ACTabScrollViewDelegate
     func tabScrollView(_ tabScrollView: ACTabScrollView, didChangePageTo index: Int) {
-        print(index)
+        //print(index)
     }
     
     func tabScrollView(_ tabScrollView: ACTabScrollView, didScrollPageTo index: Int) {
@@ -168,5 +194,44 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
         labelData = makeTabScrollLabelData(data: calculatedDate)
         contentViews = roadContentViews(labelData: labelData)
         self.tabScrollView.reloadData()
+    }
+}
+
+extension DietListViewController{
+    
+    func fetchData(completion: (_ complete: Bool) -> ()) {
+        //print(date)
+        let dateComponents = calendar.dateComponents([.year, .month, .day, .weekday, .hour, .minute, .second], from: calculatedDate)
+        var startDateComponents = DateComponents()
+        startDateComponents.year = dateComponents.year
+        startDateComponents.month = dateComponents.month
+        startDateComponents.day = 1
+        startDateComponents.hour = 0
+        startDateComponents.minute = 0
+        startDateComponents.second = 0
+        startDateComponents.timeZone = TimeZone.current
+        let startDate = calendar.date(from: startDateComponents)
+        let endDate = calendar.date(byAdding: .month, value: 1, to: startDate!)
+        dateFormat.dateFormat = "MM/dd HH:mm:ss"
+        //        print("****")
+        print(dateFormat.string(from: startDate!))
+        print(dateFormat.string(from: endDate!))
+        //        print(dateFormat.string(from: endDate!))
+        //        print("****")
+        //print(startDate!.timeIntervalSince1970)
+        //print(endDate!.timeIntervalSince1970)
+        
+        guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DietList")
+        request.predicate = NSPredicate(format: "(time > %@) AND (time <= %@)", startDate! as NSDate, endDate! as NSDate)
+        do{
+            dietListArray = try managedContext.fetch(request) as! [DietList]
+            //print("Data fetch has no issue!")
+            completion(true)
+        }
+        catch{
+            print("Can't fetch data: ", error.localizedDescription)
+            completion(false)
+        }
     }
 }

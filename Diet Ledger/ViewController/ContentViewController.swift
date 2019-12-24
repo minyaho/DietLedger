@@ -16,7 +16,7 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Varible
     var dayIndex = 0
     var date = Date()
-    var dietListArrat = [DietList]()
+    var dietListArray = [DietList]()
     
     let dateFormat:DateFormatter = DateFormatter()
     let calendar = Calendar.current
@@ -50,6 +50,7 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         syncData()
+        dietListArray.sort(by: <)
         tableView.reloadData()
     }
     
@@ -124,7 +125,7 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchData{ (done) in
             if done {
                 //print("Data is ready to be used in table view!")
-                if(dietListArrat.count>0){     // 資料量大於0 顯示TableView
+                if(dietListArray.count>0){     // 資料量大於0 顯示TableView
                     tableView.isHidden = false
                 }else{                      // 反之隱藏TableView
                     tableView.isHidden = true;
@@ -142,14 +143,14 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dietListArrat.count
+        return dietListArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let news = newsArray[(indexPath as NSIndexPath).row]
         
         var tempString = ""
-        for listFood in (dietListArrat[indexPath.row].listfood)!{
+        for listFood in (dietListArray[indexPath.row].listfood)!{
             let food = listFood as! ListFood
             tempString = tempString + " " + food.name!
         }
@@ -158,18 +159,22 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "DietListCell") as! ContentTableViewCell
         //cell.thumbnailImageView.image = UIImage(named: "thumbnail-\(news.id)")
         dateFormat.dateFormat = "HH:mm"
-        cell.timeLabel.text = dateFormat.string(from: dietListArrat[indexPath.row].time!)
+        cell.timeLabel.text = dateFormat.string(from: dietListArray[indexPath.row].time!)
         //print(dietListArrat[indexPath.row].time!)
         cell.itemLabel.text = tempString
-        cell.moneyLabel.text = "$ " + String(dietListArrat[indexPath.row].price)
-        cell.storeLabel.text = dietListArrat[indexPath.row].store?.name
-        cell.type.text = dietListArrat[indexPath.row].diettype?.name
+        cell.moneyLabel.text = "$ " + String(dietListArray[indexPath.row].price)
+        cell.storeLabel.text = dietListArray[indexPath.row].store?.name
+        cell.type.text = dietListArray[indexPath.row].diettype?.name
         cell.type.layer.backgroundColor = UIColor.orange.cgColor
         cell.type.layer.cornerRadius = 25
         cell.type.layer.borderWidth = 2
         cell.type.layer.borderColor = UIColor.white.cgColor
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     /*func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -181,7 +186,8 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.backgroundColor = UIColor.orange
         
         let label = UILabel()
-        label.text = category
+        dateFormat.dateFormat = "yyyy/MM/dd"
+        label.text = dateFormat.string(from: date)
         label.textColor = UIColor.white
         if #available(iOS 8.2, *) {
             label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.thin)
@@ -217,8 +223,8 @@ extension ContentViewController{
         let endDate = calendar.date(byAdding: .day, value: 1, to: startDate!)
         dateFormat.dateFormat = "MM/dd HH:mm:ss"
 //        print("****")
-        print(dateFormat.string(from: startDate!))
-        print(dateFormat.string(from: endDate!))
+        //print(dateFormat.string(from: startDate!))
+        //print(dateFormat.string(from: endDate!))
 //        print(dateFormat.string(from: endDate!))
 //        print("****")
         //print(startDate!.timeIntervalSince1970)
@@ -228,7 +234,7 @@ extension ContentViewController{
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DietList")
         request.predicate = NSPredicate(format: "(time > %@) AND (time <= %@)", startDate! as NSDate, endDate! as NSDate)
         do{
-            dietListArrat = try managedContext.fetch(request) as! [DietList]
+            dietListArray = try managedContext.fetch(request) as! [DietList]
             //print("Data fetch has no issue!")
             completion(true)
         }
@@ -241,7 +247,7 @@ extension ContentViewController{
     // 刪除Store內的某一筆資料
     func deleteData(indexPath: IndexPath){
         guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
-        managedContext.delete(dietListArrat[indexPath.row])
+        managedContext.delete(dietListArray[indexPath.row])
         do{
             try managedContext.save()
             //print("Data Deleted!")
@@ -261,8 +267,8 @@ extension ContentViewController{
             
             request.predicate = NSPredicate.init(format: "name like[c] %@", "*"+string+"*")
             do{
-                dietListArrat = try managedContext.fetch(request) as! [DietList]
-                if(dietListArrat.count>0){
+                dietListArray = try managedContext.fetch(request) as! [DietList]
+                if(dietListArray.count>0){
                     tableView.isHidden = false
                 }else{
                     tableView.isHidden = true;
@@ -293,4 +299,12 @@ class ContentTableViewCell: UITableViewCell {
     @IBOutlet var timeLabel: UILabel!
     
     @IBOutlet var moneyLabel: UILabel!
+}
+
+extension DietList{
+    static func < (x: DietList, y: DietList) -> Bool {
+        let tempX = Double(x.time!.timeIntervalSince1970)
+        let tempY = Double(y.time!.timeIntervalSince1970)
+        return tempX < tempY
+    }
 }

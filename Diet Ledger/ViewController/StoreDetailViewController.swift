@@ -20,9 +20,6 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     // Varables
     var selectStore:Store?
-    var food_name = ["香雞堡","鮪魚三明治10212454545121212","火腿蛋土司"]
-    var food_type = ["漢堡","三明治112121","土司"]
-    var food_price = [35,30,30]
     var foodArray = [Food]()
     
     // Constants
