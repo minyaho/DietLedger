@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		890C985723AE41DC00214C5D /* AddDietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C985623AE41DC00214C5D /* AddDietViewController.swift */; };
+		890C985723AE41DC00214C5D /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C985623AE41DC00214C5D /* DietViewController.swift */; };
 		890C985923AE50A700214C5D /* DietTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C985823AE50A700214C5D /* DietTypeViewController.swift */; };
 		8939E72D23AA89BB00D5FE6A /* Diet_Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E867129C23A874C30012A80B /* Diet_Ledger.xcdatamodeld */; };
 		8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */; };
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		890C985623AE41DC00214C5D /* AddDietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDietViewController.swift; sourceTree = "<group>"; };
+		890C985623AE41DC00214C5D /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		890C985823AE50A700214C5D /* DietTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTypeViewController.swift; sourceTree = "<group>"; };
 		8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		8993530423ABD3B7001109FD /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				890C985823AE50A700214C5D /* DietTypeViewController.swift */,
 				8939E72F23AA8D7700D5FE6A /* AddStoreViewController.swift */,
 				8993530423ABD3B7001109FD /* StoreDetailViewController.swift */,
-				890C985623AE41DC00214C5D /* AddDietViewController.swift */,
+				890C985623AE41DC00214C5D /* DietViewController.swift */,
 				89C349B923B0A33600B74C7D /* StoreFoodViewController.swift */,
 			);
 			path = ViewController;
@@ -311,7 +311,7 @@
 				E8C155EB23AA14BA00319E8E /* ACTabScrollView+Protocol.swift in Sources */,
 				E867129823A874C30012A80B /* ViewController.swift in Sources */,
 				E8C155ED23AA163300319E8E /* DietListViewController.swift in Sources */,
-				890C985723AE41DC00214C5D /* AddDietViewController.swift in Sources */,
+				890C985723AE41DC00214C5D /* DietViewController.swift in Sources */,
 				8939E72D23AA89BB00D5FE6A /* Diet_Ledger.xcdatamodeld in Sources */,
 				E8C155EA23AA14BA00319E8E /* ACTabScrollView.swift in Sources */,
 				8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */,

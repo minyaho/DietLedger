@@ -100,9 +100,6 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if segue.identifier == "StoreDetail", let StoreDetail = segue.destination as? StoreDetailViewController {
             StoreDetail.selectStore = selectStore
         }
-        else if segue.identifier == "SelectStore", let addDietVC = segue.destination as? AddDietViewController {
-            addDietVC.dietStore = selectStore
-        }
     }
     /* Fuction (Tail) */
     

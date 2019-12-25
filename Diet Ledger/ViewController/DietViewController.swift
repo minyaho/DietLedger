@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class DietViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var dietTypeButton: UIButton!
     @IBOutlet weak var dietStoreButton: UIButton!
@@ -28,6 +28,7 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
     var dietTotalPrice = 0.0
     var dietFoodArray = [DietFood]()
     var dateFormatter = DateFormatter()
+    var dietList: DietList?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
         dietFoodTableView.delegate = self
         dietFoodTableView.dataSource = self
         // Do any additional setup after loading the view.
+        self.navigationItem.backBarButtonItem?.title = "144"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,9 +57,32 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
         reloadData()
     }
     
+    
     func reloadData() {
-        if(dietStore != nil){
-            dietStoreButton.titleLabel?.text = dietStore?.name
+        if(dietList != nil){
+            dietStore = dietList?.store
+            dietDate = dietList?.time
+            dietType = dietList?.diettype
+            dietStoreButton.setTitle(dietList?.store?.name, for: .normal)
+            setTimeTextField.text = dateFormatter.string(from: dietDate!)
+            dietTypeButton.setTitle(dietType?.name, for: .normal)
+    
+            if(dietFoodArray.count == 0){
+                for temp in dietList!.listfood!{
+                    let food = temp as! ListFood
+                    let dietFood = DietFood()
+                    dietFood.name = food.name
+                    dietFood.number = Int(food.number)
+                    dietFood.type = food.type
+                    dietFood.price = food.price
+                    dietFood.listFood = food
+                    dietFoodArray.append(dietFood)
+                }
+            }
+        }
+        else{
+            dietDate = Date.init()
+            setTimeTextField.text = dateFormatter.string(from: dietDate!)
         }
         
         dietTotalPrice = 0.0
@@ -100,37 +125,54 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func saveThisDietAction(_ sender: Any) {
-        guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
-        let dietList = DietList(context: managedContext)
-        dietList.diettype = dietType
-        dietList.time = dietDate
-        dietList.store = dietStore
-        dietList.price = dietTotalPrice
-        
-        do{
-            try managedContext.save()
-            //rint("Save succeed.")
+        if let tempDietList = self.dietList {
+            tempDietList.willChangeValue(forKey: "price")
+            tempDietList.setValue(dietTotalPrice, forKey: "price")
+            tempDietList.didChangeValue(forKey: "price")
+            tempDietList.willChangeValue(forKey: "time")
+            tempDietList.setValue(dietDate, forKey: "time")
+            tempDietList.didChangeValue(forKey: "time")
+            tempDietList.didSave()
         }
-        catch{
-            print("Failed to save data.", error.localizedDescription)
-        }
-        
-        for dietFood in dietFoodArray{
-            guard let foodManagedContext = appDelegate?.persistentContainer.viewContext else { return }
-            let listFood = ListFood(context: foodManagedContext)
             
-            listFood.belong = dietList
-            listFood.name = dietFood.name
-            listFood.number = Int32(dietFood.number!)
-            listFood.price = dietFood.price!
-            listFood.type = dietFood.type
+        else{
+            print("Yes")
+            guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+            let dietList = DietList(context: managedContext)
+            dietList.diettype = dietType
+            dietList.time = dietDate
+            dietList.store = dietStore
+            dietList.price = dietTotalPrice
             
             do{
-                try foodManagedContext.save()
+                try managedContext.save()
                 //rint("Save succeed.")
+                self.dietList = dietList
             }
             catch{
                 print("Failed to save data.", error.localizedDescription)
+            }
+            
+        }
+        
+        for dietFood in dietFoodArray{
+            if (dietFood.listFood == nil){
+                guard let foodManagedContext = appDelegate?.persistentContainer.viewContext else { return }
+                let listFood = ListFood(context: foodManagedContext)
+                
+                listFood.belong = dietList
+                listFood.name = dietFood.name
+                listFood.number = Int32(dietFood.number!)
+                listFood.price = dietFood.price!
+                listFood.type = dietFood.type
+                
+                do{
+                    try foodManagedContext.save()
+                    //rint("Save succeed.")
+                }
+                catch{
+                    print("Failed to save data.", error.localizedDescription)
+                }
             }
         }
         
@@ -207,7 +249,6 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
                     let dietFood = DietFood()
                     
                     if(foodNumber != -1) {
-                        print("NO -1")
                         dietFood.name = getFood?.name
                         dietFood.type = getFood?.type
                         dietFood.price = getFood!.price
@@ -224,7 +265,7 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
             textField.placeholder = "數量"
             textField.delegate = self
             textField.clearButtonMode = .whileEditing
-            textField.keyboardType = .namePhonePad
+            textField.keyboardType = .numberPad
             textField.returnKeyType = .done
             //textField.keyboardType = UIKeyboardType.phonePad
         }
@@ -235,7 +276,12 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
             animated: true,
             completion: nil)
     }
-
+    
+    @objc func hello() {
+        
+        print("Hello")
+        
+    }
     
     @objc func dismissPicker() {
         
@@ -274,14 +320,101 @@ class AddDietViewController: UIViewController, UITextFieldDelegate, UITableViewD
     // 表格內Cell的編輯動作 （刪除 修改
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "刪除") { (action, indexPath) in
+            if let deleteListFoodItem = self.dietFoodArray[indexPath.row].listFood {
+                guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+                managedContext.delete(deleteListFoodItem)
+                do{
+                    try managedContext.save()
+                    //print("Data Deleted!")
+                }
+                catch{
+                    print("Can't delete data: ", error.localizedDescription)
+                }
+            }
             self.dietFoodArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.reloadData()
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         
         let editAction = UITableViewRowAction(style: .destructive, title: "修改") { (action, indexPath) in
-            self.dietFoodArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            /*self.dietFoodArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)*/
+            // 建立一個提示框
+            let alertController = UIAlertController(
+                title: "數量",
+                message: "請輸入"+self.dietFoodArray[indexPath.row].name!+"的數量",
+                preferredStyle: .alert)
+            
+            // 建立[確認]按鈕
+            let returnAction = UIAlertAction(
+                title: "確認",
+                style: .default,
+                handler: {
+                    (action: UIAlertAction!) -> Void in
+                    let foodNumberString = alertController.textFields?[0].text
+                    if(foodNumberString?.count==0){
+                        let warn = UIAlertController(
+                            title: "錯誤",
+                            message: "輸入欄位有留空！\n\n請重新選擇並輸入！",
+                            preferredStyle: .alert)
+                        // 建立[取消]按鈕
+                        let returnAction = UIAlertAction(
+                            title: "返回",
+                            style: .destructive,
+                            handler: {
+                                (action: UIAlertAction!) -> Void in
+                        })
+                        warn.addAction(returnAction)
+                        
+                        // 顯示提示框
+                        self.present(
+                            warn,
+                            animated: true,
+                            completion: nil)
+                        return
+                    }
+                    else{
+                        
+                        var foodNumber = -1
+                        if let tempString = foodNumberString{
+                            foodNumber = Int(tempString)!
+                            print(foodNumber)
+                        }
+                        
+                        
+                        if(foodNumber != -1) {
+                            self.dietFoodArray[indexPath.row].number = foodNumber
+                            
+                            if let tempFood = self.dietFoodArray[indexPath.row].listFood {
+                                tempFood.willChangeValue(forKey: "number")
+                                tempFood.setValue(foodNumber, forKey: "number")
+                                tempFood.didChangeValue(forKey: "number")
+                                tempFood.didSave()
+                            }
+                        }
+                        else {return}
+                        
+                        self.reloadData()
+                    }
+            })
+            alertController.addAction(returnAction)
+            
+            alertController.addTextField { (textField) in
+                textField.placeholder = "數量"
+                textField.delegate = self
+                textField.text = String(self.dietFoodArray[indexPath.row].number!)
+                textField.clearButtonMode = .whileEditing
+                textField.keyboardType = .numberPad
+                textField.returnKeyType = .done
+                //textField.keyboardType = UIKeyboardType.phonePad
+            }
+            
+            // 顯示提示框
+            self.present(
+                alertController,
+                animated: true,
+                completion: nil)
         }
         editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         return [deleteAction,editAction]
@@ -340,5 +473,8 @@ class DietFood{
     var type:FoodType?
     var price:Double?
     var number:Int?
+    
+    var listFood:ListFood?
+    var editFlag = false
 }
 

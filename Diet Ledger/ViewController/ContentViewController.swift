@@ -174,7 +174,12 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        if let vc = mainStoryboard.instantiateViewController(withIdentifier: "DietViewStoryboardID") as? DietViewController
+        {
+            vc.dietList = dietListArray[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     /*func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -157,6 +157,7 @@
                         <outlet property="thisMonthCostLabel" destination="iPt-sc-cGh" id="YyU-z6-U5h"/>
                         <outlet property="thisMonthDietNumberLabel" destination="dxP-45-GOq" id="T4m-Yc-GEV"/>
                         <outlet property="titleDateLabel" destination="RBY-Ip-e3X" id="bN6-Pk-uL8"/>
+                        <segue destination="VSp-bt-yRv" kind="show" identifier="ShowDietListDetil" id="hf3-8x-EEs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,7 +167,7 @@
         <!--新增飲食-->
         <scene sceneID="jwk-Ev-IRo">
             <objects>
-                <viewController id="VSp-bt-yRv" customClass="AddDietViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DietViewStoryboardID" id="VSp-bt-yRv" customClass="DietViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b7b-4c-RS5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,7 +216,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="設定時間" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dc4-i4-n6a">
-                                        <rect key="frame" x="97" y="49" width="69.5" height="20"/>
+                                        <rect key="frame" x="97" y="51" width="69.5" height="20"/>
                                         <color key="backgroundColor" name="OrangeWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -226,7 +227,7 @@
                                 <constraints>
                                     <constraint firstItem="Sgs-KU-VnT" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="10" id="2ZB-04-sUy"/>
                                     <constraint firstItem="N8P-Pd-Tbn" firstAttribute="leading" secondItem="rSO-uw-wPQ" secondAttribute="leading" constant="15" id="42u-Kl-QaR"/>
-                                    <constraint firstItem="dc4-i4-n6a" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="14" id="4Lu-UB-fBu"/>
+                                    <constraint firstItem="dc4-i4-n6a" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="16" id="4Lu-UB-fBu"/>
                                     <constraint firstAttribute="height" constant="90" id="5ok-yb-3hf"/>
                                     <constraint firstItem="vth-BF-Pet" firstAttribute="centerY" secondItem="rSO-uw-wPQ" secondAttribute="centerY" constant="-14" id="Xzo-tX-UYF"/>
                                     <constraint firstAttribute="trailing" secondItem="0Aj-rh-XcV" secondAttribute="trailing" constant="15" id="cJi-iM-XhL"/>
@@ -1330,14 +1331,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="商品名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyb-dY-sWK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="220" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="店家名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdL-ma-4Ph">
-                                                            <rect key="frame" x="3" y="30" width="220" height="20"/>
+                                                            <rect key="frame" x="3" y="30" width="174" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1435,7 +1436,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gST-If-l2x"/>
-        <segue reference="YQj-v8-9gM"/>
+        <segue reference="p5j-wZ-pI1"/>
+        <segue reference="hf3-8x-EEs"/>
     </inferredMetricsTieBreakers>
 </document>
