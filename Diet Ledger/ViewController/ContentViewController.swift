@@ -154,6 +154,14 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
             let food = listFood as! ListFood
             tempString = tempString + " " + food.name!
         }
+        if(tempString.count>0){
+            let index = tempString.index(tempString.startIndex, offsetBy: 1)
+            tempString = String(tempString[index...])
+        }
+        else
+        {
+            tempString = "（空）"
+        }
         
         // set the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "DietListCell") as! ContentTableViewCell

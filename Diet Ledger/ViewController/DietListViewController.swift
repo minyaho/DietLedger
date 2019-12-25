@@ -87,6 +87,7 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
     
     /* IBAction (Head) */
     @IBAction func goToLastMonthAction(_ sender: Any) {
+        dateFormat.dateFormat = "yyyy年 MM月"
         calculatedDate = calendar.date(byAdding: .month, value: -1, to: calculatedDate)!
         titleDateLabel.text = dateFormat.string(from: calculatedDate)
         syncData()
@@ -94,6 +95,7 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
     }
     
     @IBAction func goToNextMonthAction(_ sender: Any) {
+        dateFormat.dateFormat = "yyyy年 MM月"
         calculatedDate = calendar.date(byAdding: .month, value: 1, to: calculatedDate)!
         titleDateLabel.text = dateFormat.string(from: calculatedDate)
         syncData()
@@ -214,8 +216,8 @@ extension DietListViewController{
         let endDate = calendar.date(byAdding: .month, value: 1, to: startDate!)
         dateFormat.dateFormat = "MM/dd HH:mm:ss"
         //        print("****")
-        print(dateFormat.string(from: startDate!))
-        print(dateFormat.string(from: endDate!))
+        //print(dateFormat.string(from: startDate!))
+        //print(dateFormat.string(from: endDate!))
         //        print(dateFormat.string(from: endDate!))
         //        print("****")
         //print(startDate!.timeIntervalSince1970)

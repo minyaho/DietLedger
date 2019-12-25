@@ -16,13 +16,20 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var storeFoodTableView: UITableView!
-    
+    @IBOutlet weak var lastVisitedDateLabel: UILabel!
+    @IBOutlet weak var visitTimesLabel: UILabel!
+    @IBOutlet weak var totalCostLabel: UILabel!
+    @IBOutlet weak var storeFoodNumberLabel: UILabel!
     
     // Varables
     var selectStore:Store?
     var foodArray = [Food]()
+    var dietListArray = [DietList]()
+    var totalCost = 0.0
     
     // Constants
+    let dateFormat:DateFormatter = DateFormatter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +67,26 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 }else{                      // 反之隱藏TableView
                     storeFoodTableView.isHidden = true;
                 }
+                storeFoodNumberLabel.text = String(foodArray.count) + " 筆"
             }
+        }
+        
+        fetchDietListData{ (done) in
+            if(dietListArray.count>0){
+                dietListArray.sort(by: >)
+                dateFormat.dateFormat = "yyyy/MM/dd"
+                lastVisitedDateLabel.text = dateFormat.string(from: dietListArray[0].time!)
+                visitTimesLabel.text = String(dietListArray.count) + " 次"
+                
+                totalCost = 0.0
+                
+                for diet in dietListArray {
+                    totalCost += diet.price
+                }
+                
+                totalCostLabel.text = "$ " + String(totalCost)
+            }
+            
         }
     }
     
@@ -309,6 +335,21 @@ extension StoreDetailViewController{
         }
     }
     
+    func fetchDietListData(completion: (_ complete: Bool) -> ()) {
+        guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DietList")
+        request.predicate = NSPredicate.init(format: "store == %@", selectStore!)
+        do{
+            dietListArray = try managedContext.fetch(request) as! [DietList]
+            //print("Data fetch has no issue!")
+            completion(true)
+        }
+        catch{
+            print("Can't fetch data: ", error.localizedDescription)
+            completion(false)
+        }
+    }
+    
     // 刪除Store內的某一筆資料
     func deleteFoodData(indexPath: IndexPath){
         guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
@@ -335,3 +376,10 @@ class StoreFoodViewCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
 }
 
+extension DietList{
+    static func > (x: DietList, y: DietList) -> Bool {
+        let tempX = Double(x.time!.timeIntervalSince1970)
+        let tempY = Double(y.time!.timeIntervalSince1970)
+        return tempX > tempY
+    }
+}
