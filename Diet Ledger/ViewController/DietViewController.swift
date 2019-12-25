@@ -191,6 +191,7 @@ class DietViewController: UIViewController, UITextFieldDelegate, UITableViewDele
              */
             tempDietList.price = dietTotalPrice
             tempDietList.time = dietDate
+            tempDietList.diettype = dietType
         }
             
         else{
