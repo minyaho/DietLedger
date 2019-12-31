@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CLLocationManagerDelegate {
     
     // Outlet
     @IBOutlet weak var storeLabel: UILabel!
@@ -29,6 +30,7 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     // Constants
     let dateFormat:DateFormatter = DateFormatter()
+    let localtionManger = CLLocationManager()
     
     
     override func viewDidLoad() {
@@ -49,6 +51,12 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
         syncData()
         storeFoodTableView.reloadData()
+        
+        localtionManger.delegate = self
+        localtionManger.distanceFilter = kCLLocationAccuracyNearestTenMeters
+        localtionManger.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        ensureGpsEnbale()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +65,45 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     /* Fuction (Head) */
+
+    func ensureGpsEnbale()  {
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            //localtionManger.requestWhenInUseAuthorization()
+            distanceLabel.text = "GPS未授權"
+            break
+        case .authorizedWhenInUse:
+            localtionManger.startUpdatingLocation()
+            break
+        case .denied:
+            distanceLabel.text = "GPS未開啟"
+            break
+        default:
+            break
+        }
+    }
+    
+    /* 更新GPS位置 */
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocaltion = locations[0] as CLLocation
+        let targetLocation = CLLocation.init(latitude: selectStore!.latitude, longitude: selectStore!.longitude)
+        //let eLocation = CLLocationCoordinate2D(latitude: selectStore!.latitude, longitude: selectStore!.longitude)
+        //let sLocation = CLLocationCoordinate2D(latitude: currentLocaltion.coordinate.latitude, longitude: currentLocaltion.coordinate.longitude)
+        let distance:CLLocationDistance = currentLocaltion.distance(from: targetLocation)
+        
+        if(distance < 10){
+            distanceLabel.text = "小於 10 M"
+        }
+        else if(distance < 1000)
+        {
+            distanceLabel.text = String(distance.rounding(toDecimal: 2)) + " M"
+        }
+        else if(distance >= 1000)
+        {
+            distanceLabel.text = String((distance/1000).rounding(toDecimal: 2)) + " KM"
+        }
+    }
+    
     // 同步更新Food的Data
     func syncData() {
         fetchFoodData{ (done) in

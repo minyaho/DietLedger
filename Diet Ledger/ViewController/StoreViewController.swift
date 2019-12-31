@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchBarDelegate{
+class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchBarDelegate, CLLocationManagerDelegate{
     
     // Outlet
     @IBOutlet weak var storeTableView: UITableView!
@@ -20,9 +21,12 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var selectMode = false
     var storeArray = [Store]()
     var selectStore:Store?
+    var showDistanceMode = 0 // 0: Not Show, 1:Show
+    var currentLocaltion:CLLocation?
     
     // Constants
     let myEntityName = "Store"
+    let localtionManger = CLLocationManager()
     
     
     /* ViewFunction (Head) */
@@ -61,6 +65,12 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // storeSearchBar 設定
         storeSearchBar.delegate = self
         
+        localtionManger.delegate = self
+        localtionManger.distanceFilter = kCLLocationAccuracyNearestTenMeters
+        localtionManger.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        ensureGpsEnbale()
+        
         // 第一次資料更新
         syncData()
         storeTableView.reloadData()
@@ -69,19 +79,57 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // ViewFunction DidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         syncData()
         storeTableView.reloadData()
     }
     /* ViewFunction (Tail) */
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        localtionManger.stopUpdatingLocation()
+    }
+    
     /* IBAction Fuction (Head)*/
-    
-    
     
 
     /* IBAction Fuction (Tail)*/
 
     /* Fuction (Head) */
+    
+    func ensureGpsEnbale()  {
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            //localtionManger.requestWhenInUseAuthorization()
+            //distanceLabel.text = "GPS未授權"
+            showDistanceMode = 0
+            break
+        case .authorizedWhenInUse:
+            localtionManger.startUpdatingLocation()
+            showDistanceMode = 1
+            break
+        case .denied:
+            //distanceLabel.text = "GPS未開啟"
+            showDistanceMode = 0
+            break
+        default:
+            break
+        }
+    }
+    
+    /* 更新GPS位置 */
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocaltion = locations[0] as CLLocation
+        for store in storeArray{
+            let targetLocation = CLLocation.init(latitude: store.latitude, longitude: store.longitude)
+            let distance:CLLocationDistance = currentLocaltion!.distance(from: targetLocation)
+            store.distance = distance
+        }
+        storeArray.sort(by: <)
+        storeTableView.reloadData()
+    }
+    
     // 同步更新Store的Data
     func syncData() {
         fetchData{ (done) in
@@ -115,7 +163,28 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let store = storeArray[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = store.name
-        cell.detailTextLabel?.text = String(store.longitude) + ", " + String(store.latitude)
+        
+        if((showDistanceMode == 1) && (currentLocaltion != nil)){
+            let targetLocation = CLLocation.init(latitude: store.latitude, longitude: store.longitude)
+            //let eLocation = CLLocationCoordinate2D(latitude: selectStore!.latitude, longitude: selectStore!.longitude)
+            //let sLocation = CLLocationCoordinate2D(latitude: currentLocaltion.coordinate.latitude, longitude: currentLocaltion.coordinate.longitude)
+            let distance:CLLocationDistance = currentLocaltion!.distance(from: targetLocation)
+            store.distance = distance
+            if(distance < 10){
+                cell.detailTextLabel?.text = "小於 10 M"
+            }
+            else if(distance < 1000)
+            {
+                cell.detailTextLabel?.text = String(distance.rounding(toDecimal: 2)) + " M"
+            }
+            else if(distance >= 1000)
+            {
+                cell.detailTextLabel?.text = String((distance/1000).rounding(toDecimal: 2)) + " KM"
+            }
+        }
+        else{
+            cell.detailTextLabel?.text = String(store.longitude.rounding(toDecimal: 3)) + ", " + String(store.latitude.rounding(toDecimal: 3))
+        }
         return cell
     }
     
@@ -138,13 +207,14 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         
-        let editAction = UITableViewRowAction(style: .destructive, title: "修改") { (action, indexPath) in
+        /*let editAction = UITableViewRowAction(style: .destructive, title: "修改") { (action, indexPath) in
             self.deleteData(indexPath: indexPath)
             self.syncData()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        return [deleteAction,editAction]
+        editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)*/
+        //return [deleteAction,editAction]
+        return [deleteAction]
     }
     
     // 表格內Cell的短按動作
@@ -314,4 +384,19 @@ extension StoreViewController{
         }
     }
     /* CoreData Store Entity (Tail)*/
+}
+
+extension Double {
+    func rounding(toDecimal decimal: Int) -> Double {
+        let numberOfDigits = pow(10.0, Double(decimal))
+        return (self * numberOfDigits).rounded(.toNearestOrAwayFromZero) / numberOfDigits
+    }
+}
+
+extension Store{
+    static func < (x: Store, y: Store) -> Bool {
+        let tempX = x.distance
+        let tempY = y.distance
+        return tempX < tempY
+    }
 }
