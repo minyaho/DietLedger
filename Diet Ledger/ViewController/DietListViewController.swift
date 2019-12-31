@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
@@ -65,6 +66,8 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
         tabScrollView.delegate = self
         tabScrollView.dataSource = self // Do any additional setup after loading the view.
         /* ACTabScrollView 初始化設定 (Tail) */
+        
+        ensureGpsEnbale()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +85,30 @@ class DietListViewController: UIViewController, ACTabScrollViewDelegate, ACTabSc
                 thisMonthCostLabel.text = "$" + String(tempValue)
                 thisMonthDietNumberLabel.text = String(dietListArray.count)
             }
+        }
+    }
+    
+    func ensureGpsEnbale()  {
+        let localtionManger = CLLocationManager()
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            localtionManger.requestWhenInUseAuthorization()
+            break
+        case .authorizedWhenInUse:
+            break
+        case .denied:
+            let alertController = UIAlertController(
+                title: "定位權限未開啟",
+                message: "如需要變更權限，請至 設定＞隱私權＞定位服務 開啟。若無則無法提供定位資訊。",
+                preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "確定", style: .default, handler: {(
+                action: UIAlertAction!) -> Void in
+            })
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            break
+        default:
+            break
         }
     }
     

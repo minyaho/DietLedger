@@ -80,7 +80,7 @@ class DietViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         else{   // if distList is presence. -> 目前是新增模式
             
         }
-
+        
     }
     
     /* viewWillAppear need to reload data*/
@@ -115,6 +115,7 @@ class DietViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             storeFoodVC.whichStore = dietStore
         }
     }
+    
     @IBAction func selectStoreAction(_ sender: Any) {
         let notificationName = Notification.Name("storeUpdated")
         NotificationCenter.default.addObserver(self, selector: #selector(storeUpdated(noti:)), name: notificationName, object: nil)
