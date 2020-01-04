@@ -13,7 +13,8 @@ import CoreLocation
 class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CLLocationManagerDelegate {
     
     // Outlet
-    @IBOutlet weak var storeLabel: UILabel!
+
+    @IBOutlet weak var storeButton: UIButton!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var storeFoodTableView: UITableView!
@@ -42,7 +43,7 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
             errorStoreHint()
         }
         
-        storeLabel.text = selectStore?.name
+        storeButton.setTitle(selectStore?.name, for: .normal); 
         phoneLabel.text = selectStore?.phone
         
         storeFoodTableView.delegate = self

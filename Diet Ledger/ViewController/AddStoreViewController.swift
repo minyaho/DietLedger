@@ -89,9 +89,9 @@ class AddStoreViewController: UIViewController, MKMapViewDelegate ,CLLocationMan
         latTextField.isEnabled = false
         lonTextField.text = String(currentLocaltion.coordinate.longitude)
         lonTextField.isEnabled = false
-        
         let showMapLocation = CLLocationCoordinate2D(latitude: currentLocaltion.coordinate.latitude, longitude: currentLocaltion.coordinate.longitude)
-        let _span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        print(showMapLocation)
+        let _span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         storeMapView.setRegion(MKCoordinateRegion(center: showMapLocation,span: _span), animated: true)
     }
     
@@ -102,18 +102,18 @@ class AddStoreViewController: UIViewController, MKMapViewDelegate ,CLLocationMan
      }
      
      func textFieldDidBeginEditing(_ textField: UITextField){
-        print("textFieldDidBeginEditing:" + textField.text!)
+        //print("textFieldDidBeginEditing:" + textField.text!)
      }
      
      // 可能進入結束編輯狀態
      func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        print("textFieldShouldEndEditing:" + textField.text!)
+        //print("textFieldShouldEndEditing:" + textField.text!)
         return true
      }
      
      // 結束編輯狀態(意指完成輸入或離開焦點)
      func textFieldDidEndEditing(_ textField: UITextField) {
-        print("textFieldDidEndEditing:" + textField.text!)
+        //print("textFieldDidEndEditing:" + textField.text!)
      }
      
      // 當按下右下角的return鍵時觸發

@@ -73,6 +73,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // 第一次資料更新
         syncData()
+        if (showDistanceMode == 1) {storeArray.sort(by: <);}
         storeTableView.reloadData()
     }
     
@@ -81,6 +82,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidAppear(animated)
 
         syncData()
+        if (showDistanceMode == 1) {storeArray.sort(by: <);}
         storeTableView.reloadData()
     }
     /* ViewFunction (Tail) */
@@ -126,6 +128,15 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let distance:CLLocationDistance = currentLocaltion!.distance(from: targetLocation)
             store.distance = distance
         }
+        
+        for store in storeArray{
+            let targetLocation = CLLocation.init(latitude: store.latitude, longitude: store.longitude)
+            //let eLocation = CLLocationCoordinate2D(latitude: selectStore!.latitude, longitude: selectStore!.longitude)
+            //let sLocation = CLLocationCoordinate2D(latitude: currentLocaltion.coordinate.latitude, longitude: currentLocaltion.coordinate.longitude)
+            let distance:CLLocationDistance = currentLocaltion!.distance(from: targetLocation)
+            store.distance = distance;
+        }
+        
         storeArray.sort(by: <)
         storeTableView.reloadData()
     }

@@ -22,14 +22,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-z5-nfk" userLabel="information view">
                                 <rect key="frame" x="5" y="94" width="404" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019年 11月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBY-Ip-e3X">
-                                        <rect key="frame" x="136.5" y="8" width="131" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019年 11月" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBY-Ip-e3X">
+                                        <rect key="frame" x="127" y="8" width="150" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="dEs-Wd-ybE"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPa-Lt-9Ff">
-                                        <rect key="frame" x="292.5" y="2" width="51.5" height="41"/>
+                                        <rect key="frame" x="314" y="2" width="30" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="▶">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,7 +42,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-y4-ZYn">
-                                        <rect key="frame" x="60" y="2" width="51.5" height="41"/>
+                                        <rect key="frame" x="60" y="2" width="30" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="◀">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,7 +104,6 @@
                                     <constraint firstItem="lLA-y4-ZYn" firstAttribute="top" secondItem="AA7-z5-nfk" secondAttribute="top" constant="2" id="BAH-VU-Am5"/>
                                     <constraint firstItem="Xm5-cc-cAU" firstAttribute="centerX" secondItem="AA7-z5-nfk" secondAttribute="centerX" id="HMf-dk-dkp"/>
                                     <constraint firstItem="dxP-45-GOq" firstAttribute="top" secondItem="Xm5-cc-cAU" secondAttribute="bottom" constant="5" id="Hn8-ZO-wvW"/>
-                                    <constraint firstItem="cPa-Lt-9Ff" firstAttribute="leading" secondItem="RBY-Ip-e3X" secondAttribute="trailing" constant="25" id="NHH-LO-NFc"/>
                                     <constraint firstItem="2gm-Pv-oMZ" firstAttribute="top" secondItem="RBY-Ip-e3X" secondAttribute="bottom" constant="15" id="Vgt-bN-9Ab"/>
                                     <constraint firstAttribute="bottom" secondItem="iPt-sc-cGh" secondAttribute="bottom" constant="14" id="ZGN-e7-EP8"/>
                                     <constraint firstItem="eXv-zy-Kkc" firstAttribute="leading" secondItem="Xm5-cc-cAU" secondAttribute="trailing" constant="32" id="d7J-St-kML"/>
@@ -109,7 +111,6 @@
                                     <constraint firstItem="RBY-Ip-e3X" firstAttribute="top" secondItem="AA7-z5-nfk" secondAttribute="top" constant="8" id="eL7-CC-gAi"/>
                                     <constraint firstItem="Xm5-cc-cAU" firstAttribute="leading" secondItem="2gm-Pv-oMZ" secondAttribute="trailing" constant="50" id="flS-Mr-QST"/>
                                     <constraint firstItem="eXv-zy-Kkc" firstAttribute="top" secondItem="RBY-Ip-e3X" secondAttribute="bottom" constant="26" id="lV4-0v-v4B"/>
-                                    <constraint firstItem="RBY-Ip-e3X" firstAttribute="leading" secondItem="lLA-y4-ZYn" secondAttribute="trailing" constant="25" id="oDI-ho-767"/>
                                     <constraint firstItem="dxP-45-GOq" firstAttribute="centerX" secondItem="Xm5-cc-cAU" secondAttribute="centerX" id="s8B-mL-h57"/>
                                     <constraint firstItem="cPa-Lt-9Ff" firstAttribute="top" secondItem="AA7-z5-nfk" secondAttribute="top" constant="2" id="wno-tX-KxA"/>
                                     <constraint firstItem="iPt-sc-cGh" firstAttribute="top" secondItem="2gm-Pv-oMZ" secondAttribute="bottom" constant="5" id="wzG-vi-PJb"/>
@@ -162,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952.1739130434785" y="137.94642857142856"/>
+            <point key="canvasLocation" x="2862.3188405797105" y="137.94642857142856"/>
         </scene>
         <!--新增飲食-->
         <scene sceneID="jwk-Ev-IRo">
@@ -472,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLq-Kc-NYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2786.9565217391305" y="137.94642857142856"/>
+            <point key="canvasLocation" x="3697.1014492753625" y="137.94642857142856"/>
         </scene>
         <!--選擇品項-->
         <scene sceneID="i4F-RL-4t7">
@@ -567,7 +568,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xSr-dU-SXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3646" y="138"/>
+            <point key="canvasLocation" x="4555.072463768116" y="137.94642857142856"/>
         </scene>
         <!--找尋類型-->
         <scene sceneID="iiN-5a-ucM">
@@ -654,13 +655,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tVk-dZ-ApX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2786.9565217391305" y="-569.19642857142856"/>
+            <point key="canvasLocation" x="3697.1014492753625" y="-569.19642857142856"/>
+        </scene>
+        <!--飲食地圖-->
+        <scene sceneID="vQM-1k-oTa">
+            <objects>
+                <viewController id="qK4-PD-V0l" customClass="DietMapViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NEr-Vs-mNt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rLu-iO-3FD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rLu-iO-3FD" firstAttribute="leading" secondItem="0gy-w2-A6c" secondAttribute="leading" id="ObK-Ol-67Y"/>
+                            <constraint firstItem="0gy-w2-A6c" firstAttribute="trailing" secondItem="rLu-iO-3FD" secondAttribute="trailing" id="TwN-QE-46j"/>
+                            <constraint firstItem="rLu-iO-3FD" firstAttribute="top" secondItem="0gy-w2-A6c" secondAttribute="top" id="gp6-lo-JAB"/>
+                            <constraint firstItem="0gy-w2-A6c" firstAttribute="bottom" secondItem="rLu-iO-3FD" secondAttribute="bottom" id="vRz-jh-EiS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0gy-w2-A6c"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="飲食地圖" id="4Qn-CS-Dku"/>
+                    <connections>
+                        <outlet property="dietMapView" destination="rLu-iO-3FD" id="maa-B4-ced"/>
+                        <segue destination="Ebv-pL-KNw" kind="show" identifier="ShowStore" id="f1A-3E-fX2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ri8-yV-Tmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1184" y="-569"/>
+        </scene>
+        <!--飲食分析-->
+        <scene sceneID="PyS-a9-bOk">
+            <objects>
+                <viewController id="N4E-cj-zcR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aRU-jl-7g0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="J9h-jz-sa3"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="飲食分析" id="K4H-xp-xkG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7I-0e-ISV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1184" y="138"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LzI-zS-rtC">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lD4-ib-NCX" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xv2-HI-u4X"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o50-AL-dU6">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -670,11 +719,13 @@
                     <connections>
                         <segue destination="QkA-rg-mva" kind="relationship" relationship="viewControllers" id="Njh-l7-oIl"/>
                         <segue destination="sQh-Ua-etX" kind="relationship" relationship="viewControllers" id="zzf-5X-dEJ"/>
+                        <segue destination="qeu-xF-YKJ" kind="relationship" relationship="viewControllers" id="PCE-1d-NQt"/>
+                        <segue destination="4nB-5T-1LU" kind="relationship" relationship="viewControllers" id="3ye-7e-ZnL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7l-oH-Buf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="137.94642857142856"/>
         </scene>
         <!--找尋店家-->
         <scene sceneID="tWW-7B-Ymj">
@@ -826,13 +877,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gZ-Yn-fcd" userLabel="Store View">
                                 <rect key="frame" x="5" y="96" width="404" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="店家名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gop-UF-h5M">
-                                        <rect key="frame" x="19" y="16" width="241" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" red="0.9748848081" green="0.70416992899999997" blue="0.14886066319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="無填寫電話" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7H-Gr-AVG">
                                         <rect key="frame" x="19" y="54" width="230" height="22"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -840,8 +884,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="84KM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xB-Vf-7v2">
-                                        <rect key="frame" x="268" y="42" width="120" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GPS訊號錯誤" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xB-Vf-7v2">
+                                        <rect key="frame" x="267" y="42" width="121" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -854,6 +898,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAy-PL-djG">
+                                        <rect key="frame" x="19" y="14" width="240" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="店家名稱">
+                                            <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -866,7 +918,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GY7-51-JKH" userLabel="Data View">
-                                <rect key="frame" x="5" y="194" width="404" height="44"/>
+                                <rect key="frame" x="5" y="191" width="404" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上回到訪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIc-CK-uUK">
                                         <rect key="frame" x="20" y="12" width="66" height="20"/>
@@ -896,7 +948,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bp8-nP-ege" userLabel="information view">
-                                <rect key="frame" x="5" y="243" width="404" height="44"/>
+                                <rect key="frame" x="5" y="240" width="404" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到訪次數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cI5-wq-yTy">
                                         <rect key="frame" x="20" y="12" width="66" height="20"/>
@@ -926,7 +978,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfM-m0-lMM" userLabel="Cost View">
-                                <rect key="frame" x="5" y="292" width="404" height="44"/>
+                                <rect key="frame" x="5" y="289" width="404" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累計開銷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KU-yy-jwT">
                                         <rect key="frame" x="20" y="12" width="66" height="20"/>
@@ -956,10 +1008,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aet-j3-6Z0" userLabel="Food View">
-                                <rect key="frame" x="5" y="341" width="404" height="467"/>
+                                <rect key="frame" x="5" y="338" width="404" height="470"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bev-i2-qp3">
-                                        <rect key="frame" x="5" y="79" width="394" height="340"/>
+                                        <rect key="frame" x="5" y="79" width="394" height="343"/>
                                         <color key="backgroundColor" name="OrangeWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreFoodCell" id="flI-S2-Ov1" customClass="StoreFoodViewCell" customModule="Diet_Ledger" customModuleProvider="target">
@@ -1072,7 +1124,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yW8-zZ-GXE">
-                                        <rect key="frame" x="60" y="427" width="284" height="32"/>
+                                        <rect key="frame" x="60" y="430" width="284" height="32"/>
                                         <color key="backgroundColor" red="0.9748848081" green="0.70416992899999997" blue="0.14886066319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="新增餐點">
@@ -1137,7 +1189,7 @@
                             <constraint firstItem="Xa0-4l-MWT" firstAttribute="trailing" secondItem="IfM-m0-lMM" secondAttribute="trailing" constant="5" id="UFa-NH-Ilx"/>
                             <constraint firstItem="Xa0-4l-MWT" firstAttribute="trailing" secondItem="GY7-51-JKH" secondAttribute="trailing" constant="5" id="Vjh-YL-9Ag"/>
                             <constraint firstItem="bp8-nP-ege" firstAttribute="leading" secondItem="Xa0-4l-MWT" secondAttribute="leading" constant="5" id="j9c-4G-zzI"/>
-                            <constraint firstItem="GY7-51-JKH" firstAttribute="top" secondItem="7gZ-Yn-fcd" secondAttribute="bottom" constant="8" id="kZg-Ad-z4B"/>
+                            <constraint firstItem="GY7-51-JKH" firstAttribute="top" secondItem="7gZ-Yn-fcd" secondAttribute="bottom" constant="5" id="kZg-Ad-z4B"/>
                             <constraint firstItem="Aet-j3-6Z0" firstAttribute="top" secondItem="IfM-m0-lMM" secondAttribute="bottom" constant="5" id="lSH-2W-F5v"/>
                             <constraint firstItem="Xa0-4l-MWT" firstAttribute="trailing" secondItem="Aet-j3-6Z0" secondAttribute="trailing" constant="5" id="o77-nk-c6m"/>
                             <constraint firstItem="7gZ-Yn-fcd" firstAttribute="top" secondItem="Xa0-4l-MWT" secondAttribute="top" constant="8" id="zC4-9a-5NF"/>
@@ -1149,9 +1201,9 @@
                         <outlet property="distanceLabel" destination="9xB-Vf-7v2" id="KiY-6b-UQi"/>
                         <outlet property="lastVisitedDateLabel" destination="cAP-kg-wJ0" id="LVB-lc-swp"/>
                         <outlet property="phoneLabel" destination="I7H-Gr-AVG" id="66i-Wh-hB3"/>
+                        <outlet property="storeButton" destination="oAy-PL-djG" id="jro-oI-GuF"/>
                         <outlet property="storeFoodNumberLabel" destination="JfE-SF-at2" id="aVz-H8-K22"/>
                         <outlet property="storeFoodTableView" destination="Bev-i2-qp3" id="TTb-rt-hAo"/>
-                        <outlet property="storeLabel" destination="Gop-UF-h5M" id="lfB-GQ-4pl"/>
                         <outlet property="totalCostLabel" destination="nsb-ad-QRF" id="YOL-H1-p4J"/>
                         <outlet property="visitTimesLabel" destination="SAk-rh-ras" id="UH9-iT-g84"/>
                     </connections>
@@ -1356,7 +1408,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6P-i9-U2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1952.1739130434785" y="137.94642857142856"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="Tar-tk-ube">
@@ -1472,7 +1524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfg-iW-Mga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950.7246376811595" y="-568.52678571428567"/>
+            <point key="canvasLocation" x="2860.8695652173915" y="-568.52678571428567"/>
         </scene>
         <!--尋找店家-->
         <scene sceneID="SvV-tC-AjV">
@@ -1499,18 +1551,64 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXF-5F-8TY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="960"/>
+            <point key="canvasLocation" x="994" y="956"/>
+        </scene>
+        <!--飲食地圖-->
+        <scene sceneID="1Ri-gc-R3N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4nB-5T-1LU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="飲食地圖" image="TabIconMap" id="G2P-dt-CQr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="qgT-AJ-r0M">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.67843137249999996" blue="0.098039215690000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qK4-PD-V0l" kind="relationship" relationship="rootViewController" id="9Wk-Wm-PSO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8E-aw-ZBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-242" y="-569"/>
+        </scene>
+        <!--飲食分析-->
+        <scene sceneID="XiT-Jd-drf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qeu-xF-YKJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="飲食分析" id="X1x-bI-Syz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="2Uz-qv-dXr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.67843137249999996" blue="0.098039215690000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="N4E-cj-zcR" kind="relationship" relationship="rootViewController" id="vXb-vK-DqR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aM-JR-fQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-242" y="138"/>
         </scene>
     </scenes>
     <resources>
         <image name="TabIconDietList" width="16" height="16"/>
+        <image name="TabIconMap" width="16" height="16"/>
         <image name="TabIconSearch" width="16" height="16"/>
         <namedColor name="OrangeWhite">
             <color red="0.9882352941176471" green="0.92941176470588238" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p5j-wZ-pI1"/>
+        <segue reference="f1A-3E-fX2"/>
+        <segue reference="gST-If-l2x"/>
         <segue reference="hf3-8x-EEs"/>
     </inferredMetricsTieBreakers>
 </document>
