@@ -455,7 +455,11 @@
                         <viewLayoutGuide key="safeArea" id="O9m-G4-21l"/>
                     </view>
                     <navigationItem key="navigationItem" title="新增飲食" id="xmi-5M-MP9">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="60F-qV-mk3"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="60F-qV-mk3">
+                            <connections>
+                                <action selector="menuAction:" destination="VSp-bt-yRv" id="b1n-yO-wtM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addFoodItemButton" destination="bWf-pH-1cz" id="ukN-uM-EB1"/>
@@ -691,18 +695,76 @@
         <!--飲食分析-->
         <scene sceneID="PyS-a9-bOk">
             <objects>
-                <viewController id="N4E-cj-zcR" sceneMemberID="viewController">
+                <viewController id="N4E-cj-zcR" customClass="DietAnalysisViewController" customModule="Diet_Ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aRU-jl-7g0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htD-ag-fKU" userLabel="Store View">
+                                <rect key="frame" x="5" y="93" width="404" height="379.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBl-tC-h5l">
+                                        <rect key="frame" x="5" y="5" width="394" height="369.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aBl-tC-h5l" secondAttribute="bottom" constant="5" id="HoE-rg-fwX"/>
+                                    <constraint firstItem="aBl-tC-h5l" firstAttribute="top" secondItem="htD-ag-fKU" secondAttribute="top" constant="5" id="SMs-EA-8Wq"/>
+                                    <constraint firstAttribute="trailing" secondItem="aBl-tC-h5l" secondAttribute="trailing" constant="5" id="hUQ-xC-jCZ"/>
+                                    <constraint firstItem="aBl-tC-h5l" firstAttribute="leading" secondItem="htD-ag-fKU" secondAttribute="leading" constant="5" id="mss-Aq-4nZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-Xa-GEu" userLabel="Store View">
+                                <rect key="frame" x="5" y="477.5" width="404" height="379.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYi-Ry-WF2">
+                                        <rect key="frame" x="5" y="5" width="394" height="369.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99002093079999998" green="0.93042677640000004" blue="0.8274388909" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="KYi-Ry-WF2" secondAttribute="bottom" constant="5" id="44s-2l-fqC"/>
+                                    <constraint firstItem="KYi-Ry-WF2" firstAttribute="leading" secondItem="qBb-Xa-GEu" secondAttribute="leading" constant="5" id="T2E-Ca-WLe"/>
+                                    <constraint firstItem="KYi-Ry-WF2" firstAttribute="top" secondItem="qBb-Xa-GEu" secondAttribute="top" constant="5" id="aU8-q3-eJC"/>
+                                    <constraint firstAttribute="trailing" secondItem="KYi-Ry-WF2" secondAttribute="trailing" constant="5" id="agN-pG-OBn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="J9h-jz-sa3" firstAttribute="bottom" secondItem="qBb-Xa-GEu" secondAttribute="bottom" constant="5" id="DhE-qd-kBY"/>
+                            <constraint firstItem="qBb-Xa-GEu" firstAttribute="height" secondItem="J9h-jz-sa3" secondAttribute="height" multiplier="0.49" id="DtM-g3-Lzh"/>
+                            <constraint firstItem="htD-ag-fKU" firstAttribute="leading" secondItem="aRU-jl-7g0" secondAttribute="leading" constant="5" id="HEt-8h-C8i"/>
+                            <constraint firstItem="qBb-Xa-GEu" firstAttribute="leading" secondItem="J9h-jz-sa3" secondAttribute="leading" constant="5" id="Olr-9b-ixu"/>
+                            <constraint firstAttribute="trailing" secondItem="qBb-Xa-GEu" secondAttribute="trailing" constant="5" id="Sdw-P1-3HW"/>
+                            <constraint firstItem="J9h-jz-sa3" firstAttribute="trailing" secondItem="htD-ag-fKU" secondAttribute="trailing" constant="5" id="YLp-Us-NOD"/>
+                            <constraint firstItem="htD-ag-fKU" firstAttribute="height" secondItem="J9h-jz-sa3" secondAttribute="height" multiplier="0.49" id="ic6-bQ-pZ2"/>
+                            <constraint firstItem="htD-ag-fKU" firstAttribute="top" secondItem="J9h-jz-sa3" secondAttribute="top" constant="5" id="xb7-xm-aJa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="J9h-jz-sa3"/>
                     </view>
                     <navigationItem key="navigationItem" title="飲食分析" id="K4H-xp-xkG"/>
+                    <connections>
+                        <outlet property="costView" destination="aBl-tC-h5l" id="LTe-Fi-CP1"/>
+                        <outlet property="typeView" destination="KYi-Ry-WF2" id="CAr-dF-mLP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7I-0e-ISV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1184" y="138"/>
+            <point key="canvasLocation" x="-1184.0579710144928" y="137.94642857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LzI-zS-rtC">
@@ -719,7 +781,6 @@
                     <connections>
                         <segue destination="QkA-rg-mva" kind="relationship" relationship="viewControllers" id="Njh-l7-oIl"/>
                         <segue destination="sQh-Ua-etX" kind="relationship" relationship="viewControllers" id="zzf-5X-dEJ"/>
-                        <segue destination="qeu-xF-YKJ" kind="relationship" relationship="viewControllers" id="PCE-1d-NQt"/>
                         <segue destination="4nB-5T-1LU" kind="relationship" relationship="viewControllers" id="3ye-7e-ZnL"/>
                     </connections>
                 </tabBarController>
@@ -1608,7 +1669,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f1A-3E-fX2"/>
-        <segue reference="gST-If-l2x"/>
+        <segue reference="p5j-wZ-pI1"/>
         <segue reference="hf3-8x-EEs"/>
     </inferredMetricsTieBreakers>
 </document>

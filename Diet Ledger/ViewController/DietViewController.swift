@@ -134,6 +134,82 @@ class DietViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         self.performSegue(withIdentifier: "SelectStoreFood", sender: self)
     }
     
+    @IBAction func menuAction(_ sender: Any) {
+        
+        let menuAC = UIAlertController(
+            title: "",
+            message: "功能目錄",
+            preferredStyle: .actionSheet)
+        // 建立[取消]按鈕
+        
+        let saveAction = UIAlertAction(
+            title: "保存此單",
+            style: .default,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+                self.saveThisDietAction(sender)
+                
+        })
+        menuAC.addAction(saveAction)
+        
+        if(dietList != nil){
+            let deleteAction = UIAlertAction(
+                title: "刪除此單",
+                style: .default,
+                handler: {
+                    (action: UIAlertAction!) -> Void in
+                    
+                    if let list = self.dietList{
+                        
+                        if let foodArray = self.dietList?.listfood {
+                            for food in foodArray{
+                                let f = food as! ListFood
+                                guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+                                managedContext.delete(f)
+                                do{
+                                    try managedContext.save()
+                                    //print("Data Deleted!")
+                                }
+                                catch{
+                                    print("Can't delete data: ", error.localizedDescription)
+                                }
+                            }
+                        }
+                        
+                        guard let managedContext  = appDelegate?.persistentContainer.viewContext else { return }
+                        managedContext.delete(list)
+                        do{
+                            try managedContext.save()
+                            //print("Data Deleted!")
+                        }
+                        catch{
+                            print("Can't delete data: ", error.localizedDescription)
+                        }
+                        
+                        self.navigationController?.popViewController(animated: true)
+                    }
+            })
+            menuAC.addAction(deleteAction)
+        }
+        
+        let returnAction = UIAlertAction(
+            title: "返回",
+            style: .default,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+        })
+        menuAC.addAction(returnAction)
+        
+        // 顯示提示框
+        self.present(
+            menuAC,
+            animated: true,
+            completion: nil)
+        return
+        
+    }
+    
+    
     @IBAction func saveThisDietAction(_ sender: Any) {
         
         if ((dietStore == nil) || (dietType == nil)) {
