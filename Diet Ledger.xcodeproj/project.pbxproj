@@ -27,6 +27,7 @@
 		E8C155EB23AA14BA00319E8E /* ACTabScrollView+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C155E923AA14BA00319E8E /* ACTabScrollView+Protocol.swift */; };
 		E8C155ED23AA163300319E8E /* DietListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C155EC23AA163300319E8E /* DietListViewController.swift */; };
 		E8C155EF23AA1E4B00319E8E /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C155EE23AA1E4B00319E8E /* ContentViewController.swift */; };
+		E8F27F4623C3042600EE6D1B /* NextDietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F27F4523C3042600EE6D1B /* NextDietViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		E8C155E923AA14BA00319E8E /* ACTabScrollView+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ACTabScrollView+Protocol.swift"; sourceTree = "<group>"; };
 		E8C155EC23AA163300319E8E /* DietListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListViewController.swift; sourceTree = "<group>"; };
 		E8C155EE23AA1E4B00319E8E /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		E8F27F4523C3042600EE6D1B /* NextDietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDietViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				89C349B923B0A33600B74C7D /* StoreFoodViewController.swift */,
 				8915BF1C23C026E600956776 /* DietMapViewController.swift */,
 				8915BF1E23C04B5500956776 /* DietAnalysisViewController.swift */,
+				E8F27F4523C3042600EE6D1B /* NextDietViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				8939E72D23AA89BB00D5FE6A /* Diet_Ledger.xcdatamodeld in Sources */,
 				E8C155EA23AA14BA00319E8E /* ACTabScrollView.swift in Sources */,
 				8915BF1D23C026E600956776 /* DietMapViewController.swift in Sources */,
+				E8F27F4623C3042600EE6D1B /* NextDietViewController.swift in Sources */,
 				8939E73023AA8D7700D5FE6A /* AddStoreViewController.swift in Sources */,
 				E867129623A874C30012A80B /* AppDelegate.swift in Sources */,
 				E8C155EF23AA1E4B00319E8E /* ContentViewController.swift in Sources */,
