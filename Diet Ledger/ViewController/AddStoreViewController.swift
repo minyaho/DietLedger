@@ -41,11 +41,11 @@ class AddStoreViewController: UIViewController, MKMapViewDelegate ,CLLocationMan
         nameTextField.returnKeyType = .done
         phoneTextField.delegate = self
         phoneTextField.returnKeyType = .done
-        phoneTextField.keyboardType = .numberPad
+        phoneTextField.keyboardType = .phonePad
         latTextField.delegate = self
-        latTextField.keyboardType = .numberPad
+        latTextField.keyboardType = .decimalPad
         lonTextField.delegate = self
-        lonTextField.keyboardType = .numberPad
+        lonTextField.keyboardType = .decimalPad
         
         
         localtionManger.delegate = self
@@ -91,12 +91,12 @@ class AddStoreViewController: UIViewController, MKMapViewDelegate ,CLLocationMan
         let currentLocaltion = locations[0] as CLLocation
         
         latTextField.text = String(currentLocaltion.coordinate.latitude)
-        latTextField.isEnabled = false
+        //latTextField.isEnabled = false
         lonTextField.text = String(currentLocaltion.coordinate.longitude)
-        lonTextField.isEnabled = false
+        //lonTextField.isEnabled = false
         let showMapLocation = CLLocationCoordinate2D(latitude: currentLocaltion.coordinate.latitude, longitude: currentLocaltion.coordinate.longitude)
         print(showMapLocation)
-        let _span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let _span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         storeMapView.setRegion(MKCoordinateRegion(center: showMapLocation,span: _span), animated: true)
     }
     

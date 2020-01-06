@@ -164,7 +164,78 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
             animated: true,
             completion: nil)
     }
+    
+    
+    @IBAction func storeNameAction(_ sender: Any) {
+        // 建立一個提示框
+        let alertController = UIAlertController(
+            title: "修改店家名稱",
+            message: "是否修改店家名稱",
+            preferredStyle: .alert)
+        
+        // 建立[完成]按鈕
+        let okAction = UIAlertAction(
+            title: "修改",
+            style: .default,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+                let storeNameString = alertController.textFields?[0].text
 
+                if(storeNameString?.count==0){
+                    let warn = UIAlertController(
+                        title: "錯誤",
+                        message: "輸入欄位有留空！\n\n請重新輸入！",
+                        preferredStyle: .alert)
+                    // 建立[取消]按鈕
+                    let returnAction = UIAlertAction(
+                        title: "返回",
+                        style: .destructive,
+                        handler: {
+                            (action: UIAlertAction!) -> Void in
+                            
+                    })
+                    warn.addAction(returnAction)
+                    
+                    // 顯示提示框
+                    self.present(
+                        warn,
+                        animated: true,
+                        completion: nil)
+                    return
+                }
+                
+                self.selectStore?.name = storeNameString!
+                self.storeButton.setTitle(self.selectStore?.name, for: .normal)
+
+        })
+        alertController.addAction(okAction)
+        
+        // 建立[取消]按鈕
+        let cancelAction = UIAlertAction(
+            title: "取消",
+            style: .cancel,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+                
+        })
+        alertController.addAction(cancelAction)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "店家名稱"
+            textField.delegate = self
+            textField.clearButtonMode = .whileEditing
+            textField.returnKeyType = .done
+            //textField.keyboardType = UIKeyboardType.phonePad
+        }
+        
+        // 顯示提示框
+        self.present(
+            alertController,
+            animated: true,
+            completion: nil)
+        
+    }
+    
     /* IBAction Fuction (Head) */
     @IBAction func AddFoodAction(_ sender: Any) {
         // 建立一個提示框

@@ -38,6 +38,7 @@ class DietMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        syncData()                  
         
     }
     
@@ -82,7 +83,7 @@ class DietMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             if done {
                 //print("Data is ready to be used in table view!")
                 if(storeArray.count>0){
-                    
+                    dietMapView.removeAnnotations(dietMapView.annotations)
                     for store in storeArray{
                         let ct = CLLocation(latitude: store.latitude, longitude: store.longitude)
                         let annotation = MKPointAnnotation()
