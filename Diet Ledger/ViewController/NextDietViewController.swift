@@ -11,10 +11,10 @@ import CoreData
 
 class NextDietViewController: UIViewController {
 
-    @IBOutlet var foodNameLabel: UILabel!
+    @IBOutlet var typeNameLabel: UILabel!
     @IBOutlet var storeFoodName: UILabel!
     @IBOutlet var priceLabel: UILabel!
-    @IBOutlet var typeButton: UIButton!
+    @IBOutlet var foodNameButton: UIButton!
     
     var randomArray = [Int]()
     var foodArray = [Food]()
@@ -33,10 +33,10 @@ class NextDietViewController: UIViewController {
         if hasFood {
             let rad = Int.random(in: 0...(foodArray.count-1))
             let food = foodArray[rad]
-            foodNameLabel.text = food.name
+            typeNameLabel.text = food.type?.name
             storeFoodName.text = food.productor?.name
             priceLabel.text = "$ " + String(food.price)
-            typeButton.setTitle(food.type?.name, for: .normal)
+            foodNameButton.setTitle(food.name, for: .normal)
         }
         else{
             let warn = UIAlertController(

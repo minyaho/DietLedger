@@ -42,6 +42,11 @@ class AddStoreViewController: UIViewController, MKMapViewDelegate ,CLLocationMan
         phoneTextField.delegate = self
         phoneTextField.returnKeyType = .done
         phoneTextField.keyboardType = .numberPad
+        latTextField.delegate = self
+        latTextField.keyboardType = .numberPad
+        lonTextField.delegate = self
+        lonTextField.keyboardType = .numberPad
+        
         
         localtionManger.delegate = self
         localtionManger.distanceFilter = kCLLocationAccuracyNearestTenMeters

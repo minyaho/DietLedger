@@ -940,14 +940,14 @@
                                 <rect key="frame" x="5" y="96" width="404" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="無填寫電話" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7H-Gr-AVG">
-                                        <rect key="frame" x="19" y="54" width="230" height="22"/>
+                                        <rect key="frame" x="19" y="54" width="228" height="22"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GPS訊號錯誤" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xB-Vf-7v2">
-                                        <rect key="frame" x="267" y="42" width="121" height="27"/>
+                                        <rect key="frame" x="266" y="42" width="121" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -961,7 +961,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAy-PL-djG">
-                                        <rect key="frame" x="19" y="14" width="240" height="41"/>
+                                        <rect key="frame" x="19" y="14" width="238" height="41"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="店家名稱">
@@ -1793,21 +1793,21 @@
                                             <constraint firstAttribute="width" constant="86" id="S8A-we-heX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                        <state key="normal" title="餐點名稱">
+                                        <state key="normal" title="餐點種類">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="selectStoreAction:" destination="VSp-bt-yRv" eventType="touchUpInside" id="Ajp-VW-ZLd"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="餐點名稱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjW-3Y-vAx">
-                                        <rect key="frame" x="156" y="165" width="168" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="餐點種類" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjW-3Y-vAx">
+                                        <rect key="frame" x="136" y="165" width="178" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店家名稱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-MC-Ut7">
-                                        <rect key="frame" x="156" y="221" width="168" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店家名稱" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-MC-Ut7">
+                                        <rect key="frame" x="136" y="221" width="178" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1838,20 +1838,20 @@
                                             <action selector="selectStoreAction:" destination="VSp-bt-yRv" eventType="touchUpInside" id="xV4-QX-TlB"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qa-MX-E7B">
-                                        <rect key="frame" x="156" y="277" width="168" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qa-MX-E7B">
+                                        <rect key="frame" x="136" y="277" width="178" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx9-H1-eXp">
-                                        <rect key="frame" x="127" y="56" width="100" height="72"/>
+                                        <rect key="frame" x="60" y="56" width="234" height="72"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="72" id="gVJ-Tt-LRj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="類型">
+                                        <state key="normal" title="餐點名稱">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -1859,31 +1859,28 @@
                                                 <integer key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="selectDietTypeAction:" destination="VSp-bt-yRv" eventType="touchUpInside" id="Rqh-d6-FW9"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97258061169999999" green="0.82961410280000003" blue="0.58037132020000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="TyP-Mc-Mct" firstAttribute="leading" secondItem="h6D-VM-18N" secondAttribute="leading" constant="40" id="3Gi-ai-6mG"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Qa-MX-E7B" secondAttribute="trailing" constant="30" id="7MW-gN-NvS"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Qa-MX-E7B" secondAttribute="trailing" constant="40" id="7MW-gN-NvS"/>
                                     <constraint firstItem="R02-aA-fyy" firstAttribute="top" secondItem="N5a-h7-rMO" secondAttribute="bottom" constant="20" id="7bq-nJ-0M9"/>
-                                    <constraint firstAttribute="trailing" secondItem="XjW-3Y-vAx" secondAttribute="trailing" constant="30" id="BMC-om-Q47"/>
+                                    <constraint firstAttribute="trailing" secondItem="XjW-3Y-vAx" secondAttribute="trailing" constant="40" id="BMC-om-Q47"/>
                                     <constraint firstItem="N5a-h7-rMO" firstAttribute="leading" secondItem="h6D-VM-18N" secondAttribute="leading" constant="40" id="Fgf-NL-oq5"/>
                                     <constraint firstItem="Bx9-H1-eXp" firstAttribute="top" secondItem="h6D-VM-18N" secondAttribute="top" constant="56" id="L8T-au-EKg"/>
                                     <constraint firstItem="N5a-h7-rMO" firstAttribute="top" secondItem="TyP-Mc-Mct" secondAttribute="bottom" constant="20" id="Lke-Po-iBU"/>
-                                    <constraint firstAttribute="trailing" secondItem="hzP-MC-Ut7" secondAttribute="trailing" constant="30" id="TSp-aF-pjL"/>
+                                    <constraint firstAttribute="trailing" secondItem="hzP-MC-Ut7" secondAttribute="trailing" constant="40" id="TSp-aF-pjL"/>
                                     <constraint firstItem="TyP-Mc-Mct" firstAttribute="top" secondItem="Bx9-H1-eXp" secondAttribute="bottom" constant="30" id="W4H-Hb-y0f"/>
-                                    <constraint firstItem="XjW-3Y-vAx" firstAttribute="leading" secondItem="TyP-Mc-Mct" secondAttribute="trailing" constant="30" id="a6Z-Bv-aHi"/>
+                                    <constraint firstItem="XjW-3Y-vAx" firstAttribute="leading" secondItem="TyP-Mc-Mct" secondAttribute="trailing" constant="10" id="a6Z-Bv-aHi"/>
                                     <constraint firstItem="R02-aA-fyy" firstAttribute="leading" secondItem="h6D-VM-18N" secondAttribute="leading" constant="40" id="drP-dh-Fei"/>
                                     <constraint firstItem="XjW-3Y-vAx" firstAttribute="centerY" secondItem="TyP-Mc-Mct" secondAttribute="centerY" id="kmE-4V-mJu"/>
-                                    <constraint firstAttribute="trailing" secondItem="Bx9-H1-eXp" secondAttribute="trailing" constant="127" id="m5e-h6-vFX"/>
-                                    <constraint firstItem="4Qa-MX-E7B" firstAttribute="leading" secondItem="R02-aA-fyy" secondAttribute="trailing" constant="30" id="nrN-BA-mmq"/>
-                                    <constraint firstItem="Bx9-H1-eXp" firstAttribute="leading" secondItem="h6D-VM-18N" secondAttribute="leading" constant="127" id="ptg-bR-6jA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bx9-H1-eXp" secondAttribute="trailing" constant="60" id="m5e-h6-vFX"/>
+                                    <constraint firstItem="4Qa-MX-E7B" firstAttribute="leading" secondItem="R02-aA-fyy" secondAttribute="trailing" constant="10" id="nrN-BA-mmq"/>
+                                    <constraint firstItem="Bx9-H1-eXp" firstAttribute="leading" secondItem="h6D-VM-18N" secondAttribute="leading" constant="60" id="ptg-bR-6jA"/>
                                     <constraint firstItem="4Qa-MX-E7B" firstAttribute="centerY" secondItem="R02-aA-fyy" secondAttribute="centerY" id="svj-z2-MwH"/>
                                     <constraint firstItem="hzP-MC-Ut7" firstAttribute="centerY" secondItem="N5a-h7-rMO" secondAttribute="centerY" id="w0P-um-5PR"/>
-                                    <constraint firstItem="hzP-MC-Ut7" firstAttribute="leading" secondItem="N5a-h7-rMO" secondAttribute="trailing" constant="30" id="wIj-lw-Cgl"/>
+                                    <constraint firstItem="hzP-MC-Ut7" firstAttribute="leading" secondItem="N5a-h7-rMO" secondAttribute="trailing" constant="10" id="wIj-lw-Cgl"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1925,10 +1922,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="等等吃什麼" id="REF-bZ-owK"/>
                     <connections>
-                        <outlet property="foodNameLabel" destination="XjW-3Y-vAx" id="3XM-gt-8sU"/>
+                        <outlet property="foodNameButton" destination="Bx9-H1-eXp" id="HKh-nx-Q1Q"/>
                         <outlet property="priceLabel" destination="4Qa-MX-E7B" id="cv6-jx-iLQ"/>
                         <outlet property="storeFoodName" destination="hzP-MC-Ut7" id="0LD-Db-Pzz"/>
-                        <outlet property="typeButton" destination="Bx9-H1-eXp" id="eF2-mN-SuV"/>
+                        <outlet property="typeNameLabel" destination="XjW-3Y-vAx" id="VTx-eA-kwV"/>
                         <segue destination="fnb-5e-ibW" kind="show" id="GmR-Tz-B25"/>
                     </connections>
                 </viewController>

@@ -17,6 +17,7 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var dayIndex = 0
     var date = Date()
     var dietListArray = [DietList]()
+    var refreshControl: UIRefreshControl!
     
     let dateFormat:DateFormatter = DateFormatter()
     let calendar = Calendar.current
@@ -45,6 +46,10 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         //tableView.estimatedRowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
+        
+        refreshControl = UIRefreshControl()
+        tableView.addSubview(refreshControl)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,7 +133,7 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if(dietListArray.count>0){     // 資料量大於0 顯示TableView
                     tableView.isHidden = false
                 }else{                      // 反之隱藏TableView
-                    tableView.isHidden = true;
+                    tableView.isHidden = false;
                 }
             }
         }
