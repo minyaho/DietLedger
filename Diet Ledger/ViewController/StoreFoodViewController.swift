@@ -234,7 +234,7 @@ class StoreFoodViewController: UIViewController, UITableViewDelegate, UITableVie
         let storeFood = storeFoodArray[indexPath.row]
         //cell.accessoryType = .checkmark
         cell.textLabel?.text = storeFood.name
-        cell.detailTextLabel?.text = String(storeFood.price)
+        cell.detailTextLabel?.text = "$ "+String(storeFood.price)
         //cell.detailTextLabel?.text = String(store.longitude) + ", " + String(store.latitude)
         return cell
     }
@@ -257,14 +257,14 @@ class StoreFoodViewController: UIViewController, UITableViewDelegate, UITableVie
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        
+        /*
         let editAction = UITableViewRowAction(style: .destructive, title: "修改") { (action, indexPath) in
             self.deleteData(indexPath: indexPath)
             self.syncData()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        return [deleteAction,editAction]
+        editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)*/
+        return [deleteAction]
     }
     
     // 表格內Cell的短按動作

@@ -222,6 +222,7 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         alertController.addTextField { (textField) in
             textField.placeholder = "店家名稱"
+            textField.text = self.selectStore?.name
             textField.delegate = self
             textField.clearButtonMode = .whileEditing
             textField.returnKeyType = .done
@@ -378,7 +379,7 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreFoodCell", for: indexPath) as! StoreFoodViewCell
         cell.name.text = foodArray[indexPath.row].name
         cell.type.text = foodArray[indexPath.row].type?.name
-        cell.price.text = String(foodArray[indexPath.row].price)
+        cell.price.text = "$"+String(foodArray[indexPath.row].price)
         return cell
     }
     /*TextField Function (Head) */
@@ -402,14 +403,15 @@ class StoreDetailViewController: UIViewController, UITableViewDelegate, UITableV
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        
+        /*
         let editAction = UITableViewRowAction(style: .destructive, title: "修改") { (action, indexPath) in
             self.deleteFoodData(indexPath: indexPath)
             self.syncData()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        return [deleteAction,editAction]
+        editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)*/
+        //return [deleteAction,editAction]
+        return [deleteAction]
     }
     /*TextField Function (Tail) */
     

@@ -455,7 +455,7 @@ class DietViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         cell.name.text =  dietFood.name
         cell.type.text = dietFood.type?.name
         cell.number.text = String(dietFood.number!)
-        cell.price.text = String(dietFood.price! * Double(dietFood.number!))
+        cell.price.text = "$ " + String(dietFood.price! * Double(dietFood.number!))
         return cell
     }
     

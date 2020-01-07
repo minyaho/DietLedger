@@ -48,8 +48,18 @@ class ContentViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         
         refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString.init(string: "刷新")
+        refreshControl.addTarget(self, action:
+            #selector(reloadTableView), for: UIControl.Event.valueChanged)
         tableView.addSubview(refreshControl)
         
+    }
+    
+    @objc func reloadTableView() {
+        syncData()
+        dietListArray.sort(by: <)
+        tableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     override func viewDidAppear(_ animated: Bool) {
